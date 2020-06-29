@@ -1,0 +1,10 @@
+[
+  {
+    "outputFileName": "wwwroot/js/my.js",
+    "inputFiles": [
+      "wwwroot/jquery/dist/jquery.js",
+      "wwwroot/bootstrap/dist/js/bootstrap.js"
+    ],
+    "minify": { "enabled": true }
+  }
+]
