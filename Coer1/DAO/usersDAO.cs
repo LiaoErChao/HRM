@@ -14,15 +14,15 @@ namespace DAO
 {
     public class usersDAO : IusersDAO
     {
-        private readonly TescDbContext tesc;
-        public usersDAO(TescDbContext tesc) {
+        private readonly TescDbContext1 tesc;
+        public usersDAO(TescDbContext1 tesc) {
             this.tesc = tesc;
         }
 
         public int DL(usersModel ff)
         {
             int a = 0;
-            List<users> list = tesc.users.ToList();
+            List<users> list = tesc.u.ToList();
             foreach (users item in list)
             {
                 if (ff.User_name == item.user_name && ff.User_password == item.user_password)
@@ -37,7 +37,7 @@ namespace DAO
         {
             int a = 0;
             List<usersModel> list = new List<usersModel>();
-            List<users> list2 = await Task.Run(() => { return tesc.users.ToList(); });
+            List<users> list2 = await Task.Run(() => { return tesc.u.ToList(); });
             foreach (users item in list2)
             {
                 if (us.User_name == item.user_name && us.User_password == item.user_password)
@@ -51,7 +51,7 @@ namespace DAO
         public int sfcz(usersModel bjm)
         {
             int a = 0;
-            List<users> list = tesc.users.ToList();
+            List<users> list = tesc.u.ToList();
             foreach (users item in list)
             {
                 if (bjm.User_name == item.user_name)
@@ -89,8 +89,8 @@ namespace DAO
 
         public async Task<int> UserDelete(int id)
         {
-            users aa = await tesc.users.FindAsync(id);
-            tesc.users.Remove(aa);
+            users aa = await tesc.u.FindAsync(id);
+            tesc.u.Remove(aa);
             return await tesc.SaveChangesAsync();
         }
 
@@ -112,7 +112,7 @@ namespace DAO
         public usersModel UserSelectBy(int id)
         {
             users us2 = null;
-            List<users> us = tesc.users.ToList();    //eo->dto
+            List<users> us = tesc.u.ToList();    //eo->dto
             foreach (users item in us)
             {
                 if (item.user_id == id)
@@ -159,7 +159,7 @@ namespace DAO
                                 new SqlParameter() { ParameterName = "@rows", Direction=ParameterDirection.Output,SqlDbType=SqlDbType.Int},
                                     new SqlParameter() { ParameterName = "@pages", Direction=ParameterDirection.Output,SqlDbType=SqlDbType.Int },
                                         };
-            var sql = tesc.users.FromSqlRaw($@"exec dbo.FenYeWhere @pageSize,@keyName,@tableName,@where,@currentPage,@rows out,@pages out", ps).ToList();
+            var sql = tesc.u.FromSqlRaw($@"exec dbo.FenYeWhere @pageSize,@keyName,@tableName,@where,@currentPage,@rows out,@pages out", ps).ToList();
             foreach (var ad in sql)
             {
                 usersModel h = new usersModel()
@@ -182,7 +182,7 @@ namespace DAO
         {
             string a = "";
             List<usersModel> list = new List<usersModel>();
-            List<users> list2 = tesc.users.ToList();
+            List<users> list2 = tesc.u.ToList();
             foreach (users item in list2)
             {
                 if (us.User_name == item.user_name && us.User_password == item.user_password)

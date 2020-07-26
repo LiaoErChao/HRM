@@ -23,5 +23,8 @@ namespace IBLL
         //删除
         Task<int> Delete(int id);
 
+        List<config_file_first_kindModel1> Selects();
+
+
     }
 }

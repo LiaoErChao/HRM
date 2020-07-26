@@ -22,5 +22,8 @@ namespace IDAO
 
         //删除
         Task<int> Delete(int id);
+
+      
+
     }
 }

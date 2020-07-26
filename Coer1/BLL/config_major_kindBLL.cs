@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class config_major_kindBLL1 : Iconfig_major_kindBLL1
+    public class config_major_kindBLL : Iconfig_major_kindBLL1
     {
-        private readonly Iconfig_major_kindDAO1 icmkd;
-        public config_major_kindBLL1(Iconfig_major_kindDAO1 icmkd) {
+        private readonly Iconfig_major_kindDAO icmkd;
+        public config_major_kindBLL(Iconfig_major_kindDAO icmkd) {
             this.icmkd = icmkd;
         }
 
@@ -30,6 +30,9 @@ namespace BLL
             return icmkd.Load();
         }
 
-      
+        public List<config_major_kindModel1> Select()
+        {
+            return icmkd.Select();
+        }
     }
 }

@@ -15,16 +15,17 @@ namespace Coer1.Controllers
 {
     public class TransferController : Controller
     {
-        private readonly Iconfig_file_first_kindBLL icf;
+        private readonly Iconfig_file_first_kindBLL1 icf;
         private readonly Iconfig_file_second_kindBLL ics;
         private readonly Iconfig_file_third_kindBLL ict;
         private readonly Ihuman_fileBLL hum;
         private readonly Imajor_changeBLL mc;
         private readonly Iconfig_majorbBLL cm;
         private readonly Iconfig_major_kindBLL cmk;
+      
         private readonly Isalary_standardBLL ss;
 
-        public TransferController(Iconfig_file_first_kindBLL cof,Iconfig_file_second_kindBLL cos,Iconfig_file_third_kindBLL cot,Ihuman_fileBLL hum,Imajor_changeBLL mc, Iconfig_major_kindBLL cmk,Iconfig_majorbBLL cm,Isalary_standardBLL ss) 
+        public TransferController(Iconfig_file_first_kindBLL1 cof,Iconfig_file_second_kindBLL cos,Iconfig_file_third_kindBLL cot,Ihuman_fileBLL hum,Imajor_changeBLL mc, Iconfig_major_kindBLL cmk,Iconfig_majorbBLL cm,Isalary_standardBLL ss) 
         {
             this.icf = cof;
             this.ics = cos;
@@ -38,7 +39,7 @@ namespace Coer1.Controllers
         [HttpGet]
         public async Task<IActionResult> register_locate()
         {
-            List<config_file_first_kindModel> list = await icf.SelectAll();
+            List<config_file_first_kindModel1> list = await icf.SelectAll();
             SelectList ss = new SelectList(list, "first_kind_name", "first_kind_name");
             ViewData["first"] = ss;
             return View();
@@ -46,35 +47,35 @@ namespace Coer1.Controllers
         //一级
         public ActionResult Index1()
         {
-            List<config_file_first_kindModel> list = icf.Selects();
+            List<config_file_first_kindModel1> list = icf.Selects();
             string a = JsonConvert.SerializeObject(list);
             return Json(a);
         }
         //二级
         public ActionResult Index2(string id)
         {
-            List<config_file_second_kindModel> list = ics.Loads().Where(e => e.first_kind_id == id).ToList();
+            List<config_file_second_kindModel1> list = ics.Loads().Where(e => e.first_kind_id == id).ToList();
             string a = JsonConvert.SerializeObject(list);
             return Json(a);
         }
         //三级
         public ActionResult ThiSecond(string id)
         {
-            List<config_file_third_kindModel> list = ict.Selectt().Where(e => e.second_kind_id == id).ToList();
+            List<config_file_third_kindModel1> list = ict.Selectt().Where(e => e.second_kind_id == id).ToList();
             string a = JsonConvert.SerializeObject(list);
             return Json(a);
         }
         //新职业分类
         public ActionResult Index4() 
         {
-            List<config_major_kindModel> list = cmk.Select().ToList();
+            List<config_major_kindModel1> list = cmk.Select().ToList();
             string a = JsonConvert.SerializeObject(list);
             return Json(a);
         }
         //新职位名称
         public ActionResult Index5(string id) 
         {
-            List<config_majorModel> list = cm.Select().Where(e=>e.major_kind_id==id).ToList();
+            List<config_majorModel1> list = cm.Select().Where(e=>e.major_kind_id==id).ToList();
             string a = JsonConvert.SerializeObject(list);
             return Json(a);
         }
@@ -86,7 +87,7 @@ namespace Coer1.Controllers
             return Json(a);
         }
         [HttpPost]
-        public IActionResult register_locate(config_file_third_kindModel a) 
+        public IActionResult register_locate(config_file_third_kindModel1 a) 
         {
 
             HttpContext.Session.SetString("yiji", Request.Form["emajorRelease.firstKindId"]);
@@ -164,8 +165,8 @@ namespace Coer1.Controllers
 
             };
             //1
-            List<config_file_first_kindModel> list = icf.Selects();
-            List<config_file_first_kindModel> lis = icf.Selects().Where(e => e.first_kind_name == mcm.first_kind_name).ToList();
+            List<config_file_first_kindModel1> list = icf.Selects();
+            List<config_file_first_kindModel1> lis = icf.Selects().Where(e => e.first_kind_name == mcm.first_kind_name).ToList();
             for (int i = 0; i < lis.Count; i++)
             {
                 if (list[i].first_kind_name == lis[0].first_kind_name)
@@ -175,8 +176,8 @@ namespace Coer1.Controllers
                 }
             }
 
-            List<config_major_kindModel> list3 = cmk.Select();
-            List<config_major_kindModel> lis4 = cmk.Select().Where(e => e.major_kind_id == mcm.major_kind_id).ToList();
+            List<config_major_kindModel1> list3 = cmk.Select();
+            List<config_major_kindModel1> lis4 = cmk.Select().Where(e => e.major_kind_id == mcm.major_kind_id).ToList();
             for (int i = 0; i < list3.Count; i++)
             {
                 if (list3[i].major_kind_id == lis4[0].major_kind_id)
@@ -207,19 +208,19 @@ namespace Coer1.Controllers
             string majj = HttpContext.Request.Form["sss2"];
             string saj = HttpContext.Request.Form["sss3"];
             string je = HttpContext.Request.Form["newsum"];
-            List<config_file_first_kindModel> list = icf.Selects().Where(e => e.first_kind_id == firstname).ToList();
+            List<config_file_first_kindModel1> list = icf.Selects().Where(e => e.first_kind_id == firstname).ToList();
             mcm.new_first_kind_id = list[0].first_kind_id;
             mcm.new_first_kind_name = list[0].first_kind_name;
-            List<config_file_second_kindModel> list1 = ics.Loads().Where(e => e.second_kind_id == senconname).ToList();
+            List<config_file_second_kindModel1> list1 = ics.Loads().Where(e => e.second_kind_id == senconname).ToList();
             mcm.new_second_kind_id = list1[0].second_kind_id;
             mcm.new_second_kind_name = list1[0].second_kind_name;
-            List<config_file_third_kindModel> list2 = ict.Selectt().Where(e => e.third_kind_id == thirdname).ToList();
+            List<config_file_third_kindModel1> list2 = ict.Selectt().Where(e => e.third_kind_id == thirdname).ToList();
             mcm.new_third_kind_id = list2[0].third_kind_id;
             mcm.new_third_kind_name = list2[0].third_kind_name;
-            List<config_majorModel> list3 = cm.Select().Where(e => e.major_kind_id == majorkname).ToList();
+            List<config_majorModel1> list3 = cm.Select().Where(e => e.major_kind_id == majorkname).ToList();
             mcm.new_major_kind_id = list3[0].major_kind_id;
             mcm.new_major_kind_name = list3[0].major_kind_name;
-            List<config_majorModel> list4 = cm.Select().Where(e => e.major_id == majj).ToList();
+            List<config_majorModel1> list4 = cm.Select().Where(e => e.major_id == majj).ToList();
             mcm.new_major_id = list4[0].major_id;
             mcm.new_major_name = list4[0].major_name;
             List<salary_standardModel> list5 = ss.Select().Where(e => e.standard_name == saj).ToList();

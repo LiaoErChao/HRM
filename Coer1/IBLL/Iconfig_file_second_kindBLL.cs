@@ -8,19 +8,19 @@ namespace IBLL
    public interface Iconfig_file_second_kindBLL
     {
         //查询
-        Task<List<config_file_second_kindModel>> Load();
+        Task<List<config_file_second_kindModel1>> Load();
 
-        List<config_file_second_kindModel> Loads();
+        List<config_file_second_kindModel1> Loads();
         //查询一级机构编号
-        Task<List<config_file_first_kindModel>> SelectYiJiJG();
+        Task<List<config_file_first_kindModel1>> SelectYiJiJG();
         //添加
-        Task<int> ADD(config_file_second_kindModel cffskm);
+        Task<int> ADD(config_file_second_kindModel1 cffskm);
 
         //修改查询
-        Task<config_file_second_kindModel> Up(int id);
+        Task<config_file_second_kindModel1> Up(int id);
 
         //修改
-        Task<int> Update(config_file_second_kindModel cffskm);
+        Task<int> Update(config_file_second_kindModel1 cffskm);
 
         //删除
         Task<int> Delete(int id);

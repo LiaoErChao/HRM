@@ -59,15 +59,15 @@ namespace Coer1
             services.AddTransient<Iconfig_majorDAO1, config_majorDAO1>();
 
             //config_major_kind
-            services.AddTransient<Iconfig_major_kindBLL, config_major_kindBLL>();
-            services.AddTransient<Iconfig_major_kindDAO, config_major_kindDAO>();
+            services.AddTransient<Iconfig_major_kindBLL1, config_major_kindBLL1>();
+            services.AddTransient<Iconfig_major_kindDAO1, config_major_kindDAO1>();
             services.AddControllersWithViews();
             services.AddDistributedMemoryCache().AddSession();
 
 
             //¶ÁÈ¡Á¬½Ó×Ö·û´®
             var conStr = configuration.GetConnectionString("SqlServerConnection");
-           services.AddDbContext<TescDbContext>();
+           services.AddDbContext<TescDbContext1>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

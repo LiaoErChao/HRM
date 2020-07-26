@@ -11,9 +11,11 @@ namespace BLL
     public class config_file_second_kindBLL1 : Iconfig_file_second_kindBLL1
     {
         private readonly Iconfig_file_second_kindDAO1 iconfig;
+        private readonly Iconfig_file_second_kindDAO icfskd;
 
-        public config_file_second_kindBLL1(Iconfig_file_second_kindDAO1 iconfig) {
-            this.iconfig = iconfig;       
+        public config_file_second_kindBLL1(Iconfig_file_second_kindDAO1 iconfig, Iconfig_file_second_kindDAO icfskd) {
+            this.iconfig = iconfig;
+            this.icfskd = icfskd;
         }
 
 
@@ -36,9 +38,9 @@ namespace BLL
             return iconfig.Load();
         }
 
-        public List<config_file_second_kindModel> Loads()
+        public List<config_file_second_kindModel1> Loads()
         {
-            return iconfig.Loads();
+            return icfskd.Loads();
         }
 
 

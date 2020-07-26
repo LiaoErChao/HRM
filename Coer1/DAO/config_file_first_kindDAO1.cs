@@ -72,13 +72,13 @@ namespace DAO
             return zhi;
         }
 
-        public List<config_file_first_kindModel> Selects()
+        public List<config_file_first_kindModel1> Selects()
         {
             var list = tescDbContext.configs.ToList();
-            List<config_file_first_kindModel> list2 = new List<config_file_first_kindModel>();
+            List<config_file_first_kindModel1> list2 = new List<config_file_first_kindModel1>();
             foreach (var item in list)
             {
-                config_file_first_kindModel cffkm = new config_file_first_kindModel()
+                config_file_first_kindModel1 cffkm = new config_file_first_kindModel1()
                 {
                     ffk_id = item.ffk_id,
                     first_kind_id = item.first_kind_id,

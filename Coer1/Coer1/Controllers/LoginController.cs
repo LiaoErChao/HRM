@@ -14,8 +14,8 @@ namespace Coer1.Controllers
     {
         private readonly IusersBLL sa;
         private readonly IroleBLL iro;
-        private readonly TescDbContext tesc;
-        public LoginController(IusersBLL sa,IroleBLL iro,TescDbContext tesc)
+        private readonly TescDbContext1 tesc;
+        public LoginController(IusersBLL sa,IroleBLL iro,TescDbContext1 tesc)
         {
             this.sa = sa;
             this.iro = iro;

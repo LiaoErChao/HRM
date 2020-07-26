@@ -14,8 +14,8 @@ namespace DAO
 {
     public class roleDAO : IroleDAO
     {
-        private readonly TescDbContext qx;
-        public roleDAO(TescDbContext qx) 
+        private readonly TescDbContext1 qx;
+        public roleDAO(TescDbContext1 qx) 
         {
             this.qx = qx;
         }

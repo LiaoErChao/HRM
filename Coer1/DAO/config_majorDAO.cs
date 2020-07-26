@@ -9,11 +9,11 @@ using System.Linq;
 
 namespace DAO
 {
-    public class config_majorDAO1 : Iconfig_majorDAO1
+    public class config_majorDAO : Iconfig_majorDAO1
     {
 
         private readonly TescDbContext1 tescDbContext;
-        public config_majorDAO1(TescDbContext1 tescDbContext)
+        public config_majorDAO(TescDbContext1 tescDbContext)
         {
             this.tescDbContext = tescDbContext;
         }

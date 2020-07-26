@@ -13,7 +13,7 @@ namespace Coer1.Controllers
 {
     public class TransferxcController : Controller
     {
-        private readonly Iconfig_file_first_kindBLL icf;
+        private readonly Iconfig_file_first_kindBLL1 icf;
         private readonly Iconfig_file_second_kindBLL ics;
         private readonly Iconfig_file_third_kindBLL ict;
         private readonly Ihuman_fileBLL hum;
@@ -22,7 +22,7 @@ namespace Coer1.Controllers
         private readonly Iconfig_major_kindBLL cmk;
         private readonly Isalary_standardBLL ss;
 
-        public TransferxcController(Iconfig_file_first_kindBLL cof, Iconfig_file_second_kindBLL cos, Iconfig_file_third_kindBLL cot, Ihuman_fileBLL hum, Imajor_changeBLL mc, Iconfig_major_kindBLL cmk, Iconfig_majorbBLL cm, Isalary_standardBLL ss)
+        public TransferxcController(Iconfig_file_first_kindBLL1 cof, Iconfig_file_second_kindBLL cos, Iconfig_file_third_kindBLL cot, Ihuman_fileBLL hum, Imajor_changeBLL mc, Iconfig_major_kindBLL cmk, Iconfig_majorbBLL cm, Isalary_standardBLL ss)
         {
             this.icf = cof;
             this.ics = cos;
@@ -39,10 +39,10 @@ namespace Coer1.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> locate(List<config_file_first_kindModel> list)
+        public async Task<IActionResult> locate(List<config_file_first_kindModel1> list)
         {
             list = await icf.SelectAll();
-            List<config_major_kindModel> list3 = cmk.Select();
+            List<config_major_kindModel1> list3 = cmk.Select();
             SelectList sl = new SelectList(list, "first_kind_name", "first_kind_name", "全部");
             SelectList sl3 = new SelectList(list3, "major_kind_name", "major_kind_name", "全部");
             ViewData["first"] = sl;
@@ -117,7 +117,7 @@ namespace Coer1.Controllers
         }
         public IActionResult first()
         {
-            List<config_file_first_kindModel> list = icf.Selects();
+            List<config_file_first_kindModel1> list = icf.Selects();
             string a = JsonConvert.SerializeObject(list);
             return Json(a);
         }
@@ -125,7 +125,7 @@ namespace Coer1.Controllers
         {
             string f = HttpContext.Session.GetString("f").ToString();
             string s = HttpContext.Session.GetString("s").ToString();
-            List<config_file_first_kindModel> list = icf.Selects();
+            List<config_file_first_kindModel1> list = icf.Selects();
             if (s == null)
             {
                 for (int i = 0; i < list.Count; i++)
@@ -142,7 +142,7 @@ namespace Coer1.Controllers
         }
         public IActionResult CMK()
         {
-            List<config_major_kindModel> list = cmk.Select();
+            List<config_major_kindModel1> list = cmk.Select();
             string a = JsonConvert.SerializeObject(list);
             return Json(a);
         }
@@ -159,14 +159,14 @@ namespace Coer1.Controllers
         }
         public IActionResult CM(string id)
         {
-            List<config_majorModel> list = cm.Select().Where(e => e.major_kind_name == id).ToList();
+            List<config_majorModel1> list = cm.Select().Where(e => e.major_kind_name == id).ToList();
             string a = JsonConvert.SerializeObject(list);
             return Json(a);
         }
         public IActionResult Selfirst(string id)
         {
 
-            List<config_file_second_kindModel> list = ics.Loads().Where(e => e.first_kind_id == id).ToList();
+            List<config_file_second_kindModel1> list = ics.Loads().Where(e => e.first_kind_id == id).ToList();
 
             string a = JsonConvert.SerializeObject(list);
             return Json(a);
@@ -176,7 +176,7 @@ namespace Coer1.Controllers
             string s = HttpContext.Session.GetString("s").ToString();
             string t = HttpContext.Session.GetString("t").ToString();
 
-            List<config_file_second_kindModel> list = ics.Loads().Where(e => e.first_kind_name == id).ToList();
+            List<config_file_second_kindModel1> list = ics.Loads().Where(e => e.first_kind_name == id).ToList();
             if (t == null)
             {
                 for (int i = 0; i < list.Count; i++)
@@ -194,14 +194,14 @@ namespace Coer1.Controllers
         }
         public IActionResult ThiSecond(string id, string id2)
         {
-            List<config_file_third_kindModel> list = ict.Selectt().Where(e => e.second_kind_id == id && e.first_kind_id == id2).ToList();
+            List<config_file_third_kindModel1> list = ict.Selectt().Where(e => e.second_kind_id == id && e.first_kind_id == id2).ToList();
             string a = JsonConvert.SerializeObject(list);
             return Json(a);
         }
         public IActionResult ThiSecond1(string id, string id2)
         {
             string t = HttpContext.Session.GetString("t").ToString();
-            List<config_file_third_kindModel> list = ict.Selectt().Where(e => e.second_kind_name == id && e.first_kind_name == id2).ToList();
+            List<config_file_third_kindModel1> list = ict.Selectt().Where(e => e.second_kind_name == id && e.first_kind_name == id2).ToList();
             for (int i = 0; i < list.Count; i++)
             {
                 if (list[i].third_kind_name == t)

@@ -13,9 +13,9 @@ namespace Coer1.Controllers
     public class MainController : Controller
     {
         private readonly IusersBLL iub;
-        private readonly TescDbContext tesc;
+        private readonly TescDbContext1 tesc;
 
-        public MainController(IusersBLL iub, TescDbContext tesc) {
+        public MainController(IusersBLL iub, TescDbContext1 tesc) {
             this.tesc = tesc;
         
         

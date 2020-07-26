@@ -16,8 +16,8 @@ namespace Coer1.Controllers
     public class PowerroController : Controller
     {
         private readonly IroleBLL irb;
-        private readonly TescDbContext tesc;
-        public PowerroController(IroleBLL irb,TescDbContext tesc) 
+        private readonly TescDbContext1 tesc;
+        public PowerroController(IroleBLL irb,TescDbContext1 tesc) 
         {
             this.irb = irb;
             this.tesc = tesc;

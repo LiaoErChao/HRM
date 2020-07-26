@@ -10,8 +10,10 @@ namespace BLL
     public class config_file_third_kindBLL1 : Iconfig_file_third_kindBLL1
     {
         private readonly Iconfig_file_third_kindDAO1 icftkd;
-        public config_file_third_kindBLL1(Iconfig_file_third_kindDAO1 icftkd) {
+        private readonly Iconfig_file_third_kindDAO icftkd1;
+        public config_file_third_kindBLL1(Iconfig_file_third_kindDAO1 icftkd, Iconfig_file_third_kindDAO icftkd1) {
             this.icftkd = icftkd;
+            this.icftkd1 = icftkd1;
 
         }
 
@@ -38,9 +40,9 @@ namespace BLL
             return icftkd.SelectErJiJG();
         }
 
-        public List<config_file_third_kindModel> Selectt()
+        public List<config_file_third_kindModel1> Selectt()
         {
-            return icftkd.Selectt();
+            return icftkd1.Selectt();
         }
 
         //一级机构查询

@@ -100,13 +100,13 @@ namespace DAO
             return list2;
         }
 
-        public List<config_file_third_kindModel> Selectt()
+        public List<config_file_third_kindModel1> Selectt()
         {
             var list = tescDbContext.third.ToList();
-            List<config_file_third_kindModel> list2 = new List<config_file_third_kindModel>();
+            List<config_file_third_kindModel1> list2 = new List<config_file_third_kindModel1>();
             foreach (var item in list)
             {
-                config_file_third_kindModel cftkm = new config_file_third_kindModel()
+                config_file_third_kindModel1 cftkm = new config_file_third_kindModel1()
                 {
                     first_kind_id = item.first_kind_id,
                     first_kind_name = item.first_kind_name,

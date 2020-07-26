@@ -10,14 +10,14 @@ namespace DAO
 {
     public class salary_standardDAO : Isalary_standardDAO
     {
-        private readonly TescDbContext hr;
-        public salary_standardDAO(TescDbContext hr)
+        private readonly TescDbContext1 hr;
+        public salary_standardDAO(TescDbContext1 hr)
         {
             this.hr = hr;
         }
         public List<salary_standardModel> Select()
         {
-            List<salary_standard> list = hr.salary_Standards.ToList();
+            List<salary_standard> list = hr.ss.ToList();
             List<salary_standardModel> list2 = new List<salary_standardModel>();
             //需要把ED->DTO
             foreach (salary_standard item in list)

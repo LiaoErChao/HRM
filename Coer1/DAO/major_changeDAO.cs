@@ -16,8 +16,8 @@ namespace DAO
 {
     public class major_changeDAO : Imajor_changeDAO
     {
-        private readonly TescDbContext hr;
-        public major_changeDAO(TescDbContext hr)
+        private readonly TescDbContext1 hr;
+        public major_changeDAO(TescDbContext1 hr)
         {
             this.hr = hr;
         }

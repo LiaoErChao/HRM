@@ -10,9 +10,11 @@ namespace BLL
     public class config_file_first_kindBLL1 : Iconfig_file_first_kindBLL1
     {
         private readonly Iconfig_file_first_kindDAO1 iconfig_File_First_KindDAO;
-        public config_file_first_kindBLL1(Iconfig_file_first_kindDAO1 iconfig_File_First_KindDAO)
+        private readonly Iconfig_file_first_kindDAO icffkd;
+        public config_file_first_kindBLL1(Iconfig_file_first_kindDAO1 iconfig_File_First_KindDAO, Iconfig_file_first_kindDAO icffkd)
         {
             this.iconfig_File_First_KindDAO = iconfig_File_First_KindDAO;
+            this.icffkd = icffkd;
 
         }
 
@@ -36,9 +38,9 @@ namespace BLL
             return iconfig_File_First_KindDAO.SelectAll();
         }
 
-        public List<config_file_first_kindModel> Selects()
+        public List<config_file_first_kindModel1> Selects()
         {
-            return iconfig_File_First_KindDAO.Selects();
+            return icffkd.Selects();
         }
 
 

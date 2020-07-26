@@ -13,8 +13,8 @@ namespace DAO
 {
     public class human_fileDAO : Ihuman_fileDAO
     {
-        private readonly TescDbContext tescDbContext;
-        public human_fileDAO(TescDbContext tescDbContext)
+        private readonly TescDbContext1 tescDbContext;
+        public human_fileDAO(TescDbContext1 tescDbContext)
         {
             this.tescDbContext = tescDbContext;
 
@@ -33,7 +33,7 @@ namespace DAO
                        new SqlParameter(){ParameterName="@rows",Direction=ParameterDirection.Output,SqlDbType=SqlDbType.Int},
                        new SqlParameter(){ParameterName="@pages",Direction=ParameterDirection.Output,SqlDbType=SqlDbType.Int}
                 };
-            var sql = tescDbContext.human_Files.FromSqlRaw($@"exec dbo.FenYeWhere @pageSize,@keyName,@tableName,@where,@currentPage,@rows out,@pages out", ps).ToList();
+            var sql = tescDbContext.hf.FromSqlRaw($@"exec dbo.FenYeWhere @pageSize,@keyName,@tableName,@where,@currentPage,@rows out,@pages out", ps).ToList();
             foreach (var ad in sql)
             {
                 human_fileModel h = new human_fileModel()
@@ -197,7 +197,7 @@ namespace DAO
 
         public human_fileModel SelByID02(int id)
         {
-            List<human_file> item1 = tescDbContext.human_Files.Where(e => e.huf_id == id).ToList();
+            List<human_file> item1 = tescDbContext.hf.Where(e => e.huf_id == id).ToList();
             human_file h = item1[0];
             human_fileModel model = new human_fileModel()
             {
@@ -270,7 +270,7 @@ namespace DAO
         public List<human_fileModel> select()
         {
             List<human_fileModel> list2 = new List<human_fileModel>();
-            List<human_file> list = tescDbContext.human_Files.ToList();
+            List<human_file> list = tescDbContext.hf.ToList();
             foreach (human_file item in list)
             {
                 human_fileModel tm = new human_fileModel()

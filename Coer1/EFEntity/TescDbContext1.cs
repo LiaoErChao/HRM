@@ -187,7 +187,14 @@ namespace EFEntity
         public DbSet<salary_standard_details> ssd { get; set; }
         public DbSet<salary_grant> sg { get; set; }
         public DbSet<salary_grant_details> sgd { get; set; }
-
         public DbSet<human_file> hf { get; set; }
+        public DbSet<config_major_kind> config_Major_Kinds { get; set; }
+        public DbSet<config_major> config_Majors { get; set; }
+        public DbSet<major_change> major_Changes { get; set; }
+        public DbSet<Quan> Quans { get; set; }
+        public DbSet<role> Roles { get; set; }
+        public DbSet<Quanjs> Quanjs { get; set; }
+
+        public DbSet<Qx> Qxes { get; set; }
     }
 }
