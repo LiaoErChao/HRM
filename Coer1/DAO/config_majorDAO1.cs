@@ -67,5 +67,25 @@ namespace DAO
 
             return list2;
         }
+
+        public List<config_majorModel> Select()
+        {
+            List<config_major> list = tescDbContext.config_Majors.ToList();
+            List<config_majorModel> list2 = new List<config_majorModel>();
+            foreach (config_major item in list)
+            {
+                config_majorModel model = new config_majorModel()
+                {
+                    mak_id = item.mak_id,
+                    major_kind_id = item.major_kind_id,
+                    major_kind_name = item.major_kind_name,
+                    major_id = item.major_id,
+                    major_name = item.major_name,
+                    test_amount = item.test_amount
+                };
+                list2.Add(model);
+            }
+            return list2;
+        }
     }
 }

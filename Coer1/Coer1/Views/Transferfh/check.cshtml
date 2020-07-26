@@ -1,0 +1,400 @@
+﻿@model Model.major_changeModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/table.css" rel="stylesheet" />
+    <script src="~/javascript/jquery-1.7.2.js"></script>
+    <script src="~/javascript/vue.js"></script>
+    <title>check</title>
+</head>
+<body>
+    <div id="div1">
+        <form asp-action="check">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <font color="#0000CC">您正在做的业务是:人力资源--调动管理--调动审核</font>
+                        <input type="hidden" asp-for="@Model.mch_id" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="right">
+                        <input type="radio" name="check_status" value="true">通过
+                        <input type="radio" name="check_status" value="false">不通过
+                        <input type="submit" value="提交" class="BUTTON_STYLE1">
+                        <input type="button" class="BUTTON_STYLE1" onclick="javascript:window.history.back();" value="返回">
+
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" border="1" cellpadding=0 cellspacing=1
+                   bordercolorlight=#848284 bordercolordark=#eeeeee
+                   class="TABLE_STYLE1">
+                <tr height="21">
+                    <td class="TD_STYLE1" width="8%">
+                        档案编号
+                    </td>
+                    <td class="TD_STYLE2" width="10%">
+                        <input type="text" readonly="readonly"
+                               class="INPUT_STYLE2" asp-for="@Model.human_id">
+
+                    </td>
+                    <td class="TD_STYLE1" width="8%">
+                        姓名
+                    </td>
+                    <td class="TD_STYLE2" width="10%">
+                        <input type="text"
+                               readonly="readonly"
+                               asp-for="@Model.human_name"
+                               class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1" width="8%">
+                    </td>
+                    <td class="TD_STYLE2" width="10%">
+                    </td>
+                    <td class="TD_STYLE1" width="8%">
+                    </td>
+                    <td class="TD_STYLE2" width="10%">
+                    </td>
+                </tr>
+                <tr>
+
+                    <td class="TD_STYLE1" width="8%">
+                        原一级机构
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="hidden" asp-for="@Model.first_kind_id">
+                        <input type="text"
+                               readonly="readonly"
+                               asp-for="@Model.first_kind_name"
+                               class="INPUT_STYLE2">
+                        <input type="hidden" name="majorChange.firstKindId" value="1353318953319">
+                    </td>
+                    <td class="TD_STYLE1" width="8%">
+                        原二级机构
+                    </td>
+                    <td class="TD_STYLE2" width="10%">
+                        <input type="hidden" asp-for="@Model.second_kind_id">
+                        <input type="text"
+                               readonly="readonly"
+                               asp-for="@Model.second_kind_name"
+                               class="INPUT_STYLE2">
+                        <input type="hidden" name="majorChange.secondKindId" value="1353318979558">
+                    </td>
+                    <td class="TD_STYLE1" width="8%">
+                        原三级机构
+                    </td>
+                    <td class="TD_STYLE2" width="10%">
+                        <input type="hidden" asp-for="@Model.third_kind_id">
+                        <input type="text"
+                               readonly="readonly"
+                               asp-for="@Model.third_kind_name"
+                               class="INPUT_STYLE2">
+                        <input type="hidden" name="majorChange.thirdKindId" value="1353319077370">
+                    </td>
+                    <td class="TD_STYLE1" width="8%">
+                    </td>
+                    <td class="TD_STYLE2" width="10%">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="TD_STYLE1">
+                        原职位分类
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="hidden" asp-for="@Model.major_kind_id">
+                        <input type="text" asp-for="@Model.major_kind_name"
+                               readonly="readonly" class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1" width="12%">
+                        原职位名称
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="hidden" asp-for="@Model.major_id">
+                        <input type="text" 
+                               readonly="readonly" asp-for="@Model.major_name"
+                               class="INPUT_STYLE2">
+                        <input type="hidden"  value="02">
+                    </td>
+                    <td class="TD_STYLE1">
+                        原薪酬标准
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="hidden" asp-for="@Model.salary_standard_id">
+                        <input type="text" asp-for="@Model.salary_standard_name"
+                               readonly="readonly" class="INPUT_STYLE2">
+                        <input type="hidden" value="1353320082662">
+                    </td>
+                    <td class="TD_STYLE1">
+                        原薪酬总额
+                    </td>
+                    <td class="TD_STYLE2">
+
+                        <input type="text" 
+                               readonly="readonly" asp-for="@Model.salary_sum"
+                               class="INPUT_STYLE2">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        新一级机构名称
+                    </td>
+                    <td class="TD_STYLE2">
+
+                        <select v-on:change="load2()" style="width:160px" name="configThird.firstKindId" id="dd" size="1" asp-for="@Model.new_first_kind_id" class="SELECT_STYLE2">
+                            <option v-for="(item,index) in dt" id="ss" :value="item.first_kind_id">{{item.first_kind_name}}</option>
+                        </select>
+
+                        <input type="hidden" name="majorChange.newFirstKindName" id="newFirstKindName">
+                    </td>
+                    <td class="TD_STYLE1" width="12%">
+                        新二级机构名称
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select v-on:change="load3()" style="width:160px" name="name2" id="id2" size="1" asp-for="@Model.new_second_kind_id" class="SELECT_STYLE2">
+                            <option v-for="(item,index) in dt2" :value="item.second_kind_id">{{item.second_kind_name}}</option>
+                        </select>
+                        <input type="hidden" name="majorChange.newSecondKindName" id="newSecondKindName">
+                    </td>
+                    <td class="TD_STYLE1" width="12%">
+                        新三级机构名称
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select style="width:160px" name="name3" id="smz" size="1" asp-for="@Model.new_third_kind_id" class="SELECT_STYLE2">
+                            <option v-for="(item,index) in dt3" :value="item.third_kind_id">{{item.third_kind_name}}</option>
+                        </select>
+                        <input type="hidden" name="majorChange.newThirdKindName" id="newThirdKindName">
+                    </td>
+                    <td class="TD_STYLE1" width="8%">
+                    </td>
+                    <td class="TD_STYLE2" width="10%">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        新职位分类
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select v-on:change="load5()" style="width:160px" name="sss" id="id3" size="1" asp-for="@Model.new_major_kind_id" class="SELECT_STYLE2">
+                            <option v-for="(item,index) in dt4" :value="item.major_kind_id">{{item.major_kind_name}}</option>
+                        </select>
+                        <input type="hidden" name="majorChange.newMajorKindName" id="newMajorKindName">
+                    </td>
+                    <td class="TD_STYLE1" width="12%">
+                        新职位名称
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select style="width:160px" name="sss2" id="id4" size="1" asp-for="@Model.new_major_id" class="SELECT_STYLE2">
+                            <option v-for="(item,index) in dt5" :value="item.major_id">{{item.major_name}}</option>
+                        </select>
+                        <input type="hidden" name="majorChange.newMajorName" id="newMajorName">
+                    </td>
+                    <td class="TD_STYLE1">
+                        新薪酬标准
+                    </td>
+                    <td class="TD_STYLE2">
+                        <select v-on:change="ZJ()" style="width:160px" name="sss3" id="Did2" size="1" asp-for="@Model.new_salary_standard_name" class="SELECT_STYLE2">
+                            <option v-for="(item,index) in tt" :value="item.standard_name">{{item.standard_name}}</option>
+                        </select>
+                        <input type="hidden" name="majorChange.newSalaryStandardName" id="newSalaryStandardName">
+                    </td>
+                    <td class="TD_STYLE1">
+                        新薪酬总额
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" name="newsum" id="newsum" readonly="readonly"
+                               value="@Model.new_salary_sum" class="INPUT_STYLE2">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="TD_STYLE1">
+                        登记人
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" readonly="readonly" value="@ViewBag.User_name"
+                               class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                        登记时间
+                    </td>
+                    <td class="TD_STYLE2">
+                        <input type="text" asp-for="@Model.regist_time" readonly="readonly" class="INPUT_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                    </td>
+                    <td class="TD_STYLE2">
+                    </td>
+                    <td class="TD_STYLE1">
+                    </td>
+                    <td class="TD_STYLE2">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        调动原因
+                    </td>
+                    <td colspan="7" class="TD_STYLE2">
+                        <textarea rows="6" class="TEXTAREA_STYLE1" asp-for="@Model.change_reason"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="TD_STYLE1">
+                        复合通过意见
+                    </td>
+                    <td colspan="7" class="TD_STYLE2">
+                        <textarea rows="6" class="TEXTAREA_STYLE1" asp-for="@Model.check_reason"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#div1",
+            data: {
+                dt: [],
+                dt2: [],
+                dt3: [],
+                dt4: [],
+                dt5: [],
+                id: "",
+                id2: "",
+                id4: "",
+                id5: "",
+            },
+            methods: {
+                load: function () {
+                    var t = this;
+                    $.ajax({
+                        //data: "id=" + $("#dd").val(),
+                        url: "/Transferfh/Index1",
+                        type: "post",
+                        success: function (msg) {
+                            var d = eval("(" + msg + ")");
+                            t.dt = d;
+
+                        }
+
+
+                    });
+                },
+                load2: function () {
+                    var t = this;
+                    $.ajax({
+                        data: "id=" + $("#dd").val(),
+                        url: "/Transferfh/Index2",
+                        type: "post",
+                        success: function (msg) {
+                            var arry = eval("(" + msg + ")");
+                            t.dt2 = arry;
+                        }
+                    })
+                },
+                load3: function () {
+
+
+                    var t = this;
+                    $.ajax({
+                        data: "id=" + $("#id2").val(),
+                        url: "/Transferfh/ThiSecond",
+                        type: "post",
+                        success: function (msg) {
+                            var arry = eval("(" + msg + ")");
+                            t.dt3 = arry;
+                        }
+                    })
+                },
+                ZW: function () {
+                    var t = this;
+                    $.ajax({
+
+                        url: "/Transferfh/Index4",
+                        type: "post",
+                        success: function (msg) {
+                            var aaar = eval("(" + msg + ")")
+                            t.dt4 = aaar;
+                        }
+
+
+                    });
+
+                },
+                XC: function () {
+                    var t = this;
+                    $.ajax({
+
+                        url: "/Transferfh/Index6",
+                        type: "post",
+                        success: function (msg) {
+                            var aaar = eval("(" + msg + ")")
+                            t.tt = aaar;
+                        }
+
+
+                    });
+
+                },
+                ZJ: function () {
+                    var t = this;
+                    //alert($("#Did").val());
+                    $.ajax({
+                        data: "id=" + $("#Did2").val(),
+                        url: "/Transferfh/NSum",
+                        type: "post",
+                        success: function (msg) {
+                            var arry = eval("(" + msg + ")");
+                            $("#newsum").val(arry);
+                        }
+                    })
+
+                },
+
+                load5: function () {
+                    var t = this;
+                    $.ajax({
+                        data: "id=" + $("#id3").val(),
+                        url: "/Transferfh/Index5",
+                        type: "post",
+                        success: function (msg) {
+                            var aaar = eval("(" + msg + ")")
+                            t.dt5 = aaar;
+                        }
+
+
+                    });
+
+                    
+                },
+                jiaz: function () {
+                    
+                    this.load2()
+                    this.load3();
+                    this.load5();
+                }
+
+            },
+            mounted: function () {
+                this.load();
+                this.ZW();
+                this.XC();
+                this.timer = setInterval(() => {
+                    this.jiaz()
+                }, 100)
+                this.$once('hook:beforeDestroy', () => {
+                    clearInterval(timer)
+                })
+            }
+        });
+    </script>
+</body>
+
+</html>

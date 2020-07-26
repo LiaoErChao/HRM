@@ -59,33 +59,15 @@ namespace Coer1
             services.AddTransient<Iconfig_majorDAO1, config_majorDAO1>();
 
             //config_major_kind
-            services.AddTransient<Iconfig_major_kindBLL1, config_major_kindBLL1>();
-            services.AddTransient<Iconfig_major_kindDAO1, config_major_kindDAO1>();
-
-            //users
-            services.AddTransient<IuserBLL1, usersBLL1>();
-            services.AddTransient<IusersDAO1, usersDAO1>();
-
-            //salary_standard
-            services.AddTransient<Isalary_standardBLL1, salary_standardBLL1>();
-            services.AddTransient<Isalary_standardDAO1, salary_standardDAO1>();
-
-            //salary_standard_details
-            services.AddTransient<Isalary_standard_detailsBLL, salary_standard_detailsBLL>();
-            services.AddTransient<Isalary_standard_detailsDAO, salary_standard_detailsDAO>();
-           
-            //salary_grant
-            services.AddTransient<Isalary_grantBLL, salary_grantBLL>();
-            services.AddTransient<Isalary_grantDAO, salary_grantDAO>();
-
-            //human_file
-            services.AddTransient<Ihuman_fileBLL1, human_fileBLL1>();
-            services.AddTransient<Ihuman_fileDAO1, human_fileDAO1>();
-
+            services.AddTransient<Iconfig_major_kindBLL, config_major_kindBLL>();
+            services.AddTransient<Iconfig_major_kindDAO, config_major_kindDAO>();
             services.AddControllersWithViews();
+            services.AddDistributedMemoryCache().AddSession();
+
+
             //读取连接字符串
             var conStr = configuration.GetConnectionString("SqlServerConnection");
-           services.AddDbContext<TescDbContext1>();
+           services.AddDbContext<TescDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -109,6 +91,7 @@ namespace Coer1
 
             //3
             app.UseRouting();
+            app.UseSession();
             //4
             app.UseEndpoints(endpoints =>
             {
@@ -118,8 +101,7 @@ namespace Coer1
                 //});
                 endpoints.MapControllerRoute(
                     name: "default",
-                   pattern: "{controller=Users}/{action=login}/{id?}");
-                    //pattern: "{controller=Users}/{action=index}/{id?}");
+                    pattern: "{controller=Major_Kind}/{action=major_kind}/{id?}");
             });
 
             //1->2->3->4进

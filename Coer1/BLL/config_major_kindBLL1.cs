@@ -29,5 +29,10 @@ namespace BLL
         {
             return icmkd.Load();
         }
+
+        public List<config_major_kindModel> Select()
+        {
+            return icmkd.Select();
+        }
     }
 }

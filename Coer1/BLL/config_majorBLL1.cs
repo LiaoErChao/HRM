@@ -35,5 +35,10 @@ namespace BLL
         {
             return icmd.Load();
         }
+
+        public List<config_majorModel> Select()
+        {
+            return icmd.Select();
+        }
     }
 }
