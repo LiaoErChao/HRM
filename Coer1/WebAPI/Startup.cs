@@ -22,22 +22,22 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<TescDbContext>();
+            services.AddDbContext<TescDbContext1>();
 
-            services.AddTransient<Iconfig_public_charBLL, config_public_charBLL1>();
-            services.AddTransient<Iconfig_public_charDAO, config_public_charDAO1>();
+            services.AddTransient<Iconfig_public_charBLL1, config_public_charBLL1>();
+            services.AddTransient<Iconfig_public_charDAO1, config_public_charDAO1>();
 
             //config_majorb
-            services.AddTransient<Iconfig_majorbBLL, config_majorBLL1>();
-            services.AddTransient<Iconfig_majorDAO, config_majorDAO1>();
+            services.AddTransient<Iconfig_majorbBLL1, config_majorBLL1>();
+            services.AddTransient<Iconfig_majorDAO1, config_majorDAO1>();
 
             //config_major_kind
-            services.AddTransient<Iconfig_major_kindBLL, config_major_kindBLL1>();
-            services.AddTransient<Iconfig_major_kindDAO, config_major_kindDAO1>();
+            services.AddTransient<Iconfig_major_kindBLL1, config_major_kindBLL1>();
+            services.AddTransient<Iconfig_major_kindDAO1, config_major_kindDAO1>();
 
             //users
-            services.AddTransient<IuserBLL, usersBLL1>();
-            services.AddTransient<IusersDAO, usersDAO1>();
+            services.AddTransient<IuserBLL1, usersBLL1>();
+            services.AddTransient<IusersDAO1, usersDAO1>();
 
             //  services.AddControllersWithViews();
             //øÁ”Ú

@@ -9,10 +9,10 @@ using System.Linq;
 
 namespace DAO
 {
-    public class usersDAO1 : IusersDAO
+    public class usersDAO1 : IusersDAO1
     {
-        private readonly TescDbContext tescDbContext;
-        public usersDAO1(TescDbContext tescDbContext) {
+        private readonly TescDbContext1 tescDbContext;
+        public usersDAO1(TescDbContext1 tescDbContext) {
             this.tescDbContext = tescDbContext;
         }
 

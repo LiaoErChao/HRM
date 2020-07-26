@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EFEntity
 {
-    public class TescDbContext : DbContext
+    public class TescDbContext1 : DbContext
     {
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

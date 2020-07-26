@@ -8,11 +8,11 @@ using Model;
 
 namespace BLL
 {
-    public class config_file_second_kindBLL1 : Iconfig_file_second_kindBLL
+    public class config_file_second_kindBLL1 : Iconfig_file_second_kindBLL1
     {
-        private readonly Iconfig_file_second_kindDAO iconfig;
+        private readonly Iconfig_file_second_kindDAO1 iconfig;
 
-        public config_file_second_kindBLL1(Iconfig_file_second_kindDAO iconfig) {
+        public config_file_second_kindBLL1(Iconfig_file_second_kindDAO1 iconfig) {
             this.iconfig = iconfig;       
         }
 

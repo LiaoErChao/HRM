@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
-namespace IBLL
+namespace IDAO
 {
-  public  interface Iconfig_file_third_kindBLL
+  public interface Iconfig_file_third_kindDAO1
     {
-
         //查询
         List<config_file_third_kindModel1> Select();
 
@@ -28,5 +27,6 @@ namespace IBLL
 
         //添加
         Task<int> ADD(config_file_third_kindModel1 cftkm);
+
     }
 }

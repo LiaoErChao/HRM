@@ -11,8 +11,8 @@ namespace DAO
 {
     public class salary_grantDAO : Isalary_grantDAO
     {
-        private readonly TescDbContext tescDbContext;
-        public salary_grantDAO(TescDbContext tescDbContext) {
+        private readonly TescDbContext1 tescDbContext;
+        public salary_grantDAO(TescDbContext1 tescDbContext) {
             this.tescDbContext = tescDbContext;
         
         }

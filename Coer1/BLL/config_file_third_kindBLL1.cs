@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 using IDAO;
 namespace BLL
 {
-    public class config_file_third_kindBLL1 : Iconfig_file_third_kindBLL
+    public class config_file_third_kindBLL1 : Iconfig_file_third_kindBLL1
     {
-        private readonly Iconfig_file_third_kindDAO icftkd;
-        public config_file_third_kindBLL1(Iconfig_file_third_kindDAO icftkd) {
+        private readonly Iconfig_file_third_kindDAO1 icftkd;
+        public config_file_third_kindBLL1(Iconfig_file_third_kindDAO1 icftkd) {
             this.icftkd = icftkd;
 
         }

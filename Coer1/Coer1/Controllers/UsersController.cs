@@ -15,9 +15,9 @@ namespace Coer1.Controllers
     public class UsersController : Controller
     {
 
-        private readonly IuserBLL iub;
+        private readonly IuserBLL1 iub;
 
-        public UsersController(IuserBLL iub) {
+        public UsersController(IuserBLL1 iub) {
             this.iub = iub;
         }
 

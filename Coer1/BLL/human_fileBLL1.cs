@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-   public class human_fileBLL:Ihuman_fileBLL
+   public class human_fileBLL1:Ihuman_fileBLL1
     {
-        private readonly Ihuman_fileDAO ihfd;
+        private readonly Ihuman_fileDAO1 ihfd;
         
-        public human_fileBLL(Ihuman_fileDAO ihfd)
+        public human_fileBLL1(Ihuman_fileDAO1 ihfd)
         {
             this.ihfd = ihfd;
         }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Model;
 namespace IDAO
 {
-   public interface Iconfig_file_second_kindDAO
+   public interface Iconfig_file_second_kindDAO1
     {
 
         //查询

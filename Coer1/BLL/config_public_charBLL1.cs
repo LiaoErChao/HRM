@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class config_public_charBLL1 : Iconfig_public_charBLL
+    public class config_public_charBLL1 : Iconfig_public_charBLL1
     {
 
 
-        private readonly Iconfig_public_charDAO icpcd;
-        public config_public_charBLL1(Iconfig_public_charDAO icpcd) {
+        private readonly Iconfig_public_charDAO1 icpcd;
+        public config_public_charBLL1(Iconfig_public_charDAO1 icpcd) {
             this.icpcd = icpcd;
         
         }

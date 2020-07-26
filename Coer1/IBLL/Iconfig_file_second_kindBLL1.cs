@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Model;
 namespace IBLL
 {
-   public interface Iconfig_file_second_kindBLL
+   public interface Iconfig_file_second_kindBLL1
     {
         //查询
         Task<List<config_file_second_kindModel1>> Load();

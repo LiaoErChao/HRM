@@ -15,9 +15,9 @@ namespace WebAPI.Controllers
     [ApiController]
     public class MajorController : ControllerBase
     {
-        private readonly Iconfig_majorbBLL icmb;
+        private readonly Iconfig_majorbBLL1 icmb;
 
-        public MajorController(Iconfig_majorbBLL icmb) {
+        public MajorController(Iconfig_majorbBLL1 icmb) {
             this.icmb = icmb;
         }
 

@@ -13,11 +13,11 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace DAO
 {
-    public class salary_standardDAO1 : Isalary_standardDAO
+    public class salary_standardDAO1 : Isalary_standardDAO1
     {
-        private readonly TescDbContext tescDbContext;
+        private readonly TescDbContext1 tescDbContext;
 
-        public salary_standardDAO1(TescDbContext tescDbContext) {
+        public salary_standardDAO1(TescDbContext1 tescDbContext) {
             this.tescDbContext = tescDbContext;
         }
 

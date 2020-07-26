@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFEntity.Migrations
 {
-    [DbContext(typeof(TescDbContext))]
+    [DbContext(typeof(TescDbContext1))]
     [Migration("20200616094851_inti1")]
     partial class inti1
     {

@@ -15,9 +15,9 @@ using Newtonsoft.Json;
     public class TescController : Controller
     {
 
-        private readonly Iconfig_file_first_kindBLL  config;
+        private readonly Iconfig_file_first_kindBLL1  config;
 
-        public TescController(Iconfig_file_first_kindBLL config) {
+        public TescController(Iconfig_file_first_kindBLL1 config) {
             this.config = config;
         
         }

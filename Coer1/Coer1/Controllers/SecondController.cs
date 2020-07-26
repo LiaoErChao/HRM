@@ -13,9 +13,9 @@ namespace Coer1.Controllers
 {
     public class SecondController : Controller
     {
-        private readonly Iconfig_file_second_kindBLL icfsb;
+        private readonly Iconfig_file_second_kindBLL1 icfsb;
 
-        public SecondController(Iconfig_file_second_kindBLL icfsb) {
+        public SecondController(Iconfig_file_second_kindBLL1 icfsb) {
             this.icfsb = icfsb;        
         }
        

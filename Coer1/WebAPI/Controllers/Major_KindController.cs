@@ -13,8 +13,8 @@ namespace WebAPI.Controllers
     [ApiController]
     public class Major_KindController : ControllerBase
     {
-        private readonly Iconfig_major_kindBLL icmkb;
-        public Major_KindController(Iconfig_major_kindBLL icmkb) {
+        private readonly Iconfig_major_kindBLL1 icmkb;
+        public Major_KindController(Iconfig_major_kindBLL1 icmkb) {
             this.icmkb = icmkb;
         }
 

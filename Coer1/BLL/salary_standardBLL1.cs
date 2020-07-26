@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-   public class salary_standardBLL1:Isalary_standardBLL
+   public class salary_standardBLL1:Isalary_standardBLL1
     {
-        private readonly Isalary_standardDAO issd;
+        private readonly Isalary_standardDAO1 issd;
 
-        public salary_standardBLL1(Isalary_standardDAO issd) {
+        public salary_standardBLL1(Isalary_standardDAO1 issd) {
             this.issd = issd;
         }
 

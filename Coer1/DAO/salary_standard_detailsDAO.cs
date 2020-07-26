@@ -12,8 +12,8 @@ namespace DAO
 {
     public class salary_standard_detailsDAO : Isalary_standard_detailsDAO
     {
-        private readonly TescDbContext tescDbContext;
-        public salary_standard_detailsDAO(TescDbContext tescDbContext) {
+        private readonly TescDbContext1 tescDbContext;
+        public salary_standard_detailsDAO(TescDbContext1 tescDbContext) {
             this.tescDbContext = tescDbContext;
         }
 

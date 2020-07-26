@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Model;
 namespace IDAO
 {
-   public interface Isalary_standardDAO
+   public interface Isalary_standardDAO1
     {
 
         //添加

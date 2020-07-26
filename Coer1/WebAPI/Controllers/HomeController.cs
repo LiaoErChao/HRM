@@ -14,8 +14,8 @@ namespace WebAPI.Controllers
     [ApiController]
     public class HomeController : ControllerBase
     {
-        private readonly Iconfig_public_charBLL icpcb;
-        public HomeController(Iconfig_public_charBLL icpcb) {
+        private readonly Iconfig_public_charBLL1 icpcb;
+        public HomeController(Iconfig_public_charBLL1 icpcb) {
             this.icpcb = icpcb;
         }
 

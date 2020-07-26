@@ -12,8 +12,8 @@ namespace Coer1.Controllers
 {
     public class ThirdController : Controller
     {
-        private readonly Iconfig_file_third_kindBLL icftkb;
-        public ThirdController(Iconfig_file_third_kindBLL icftkb) {
+        private readonly Iconfig_file_third_kindBLL1 icftkb;
+        public ThirdController(Iconfig_file_third_kindBLL1 icftkb) {
             this.icftkb = icftkb;      
         }
 

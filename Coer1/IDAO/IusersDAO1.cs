@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Model;
 namespace IDAO
 {
-   public interface IusersDAO
+   public interface IusersDAO1
     {
         //登录
         Task<int> Login(usersModel1 u);

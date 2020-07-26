@@ -39,36 +39,36 @@ namespace Coer1
 
             //在容器里面注册类：注册了一个ITestDAO,由ITestDAO实现
             //config_file_first_kind
-            services.AddTransient<Iconfig_file_first_kindBLL, config_file_first_kindBLL1>();
-            services.AddTransient<Iconfig_file_first_kindDAO, config_file_first_kindDAO1>();
+            services.AddTransient<Iconfig_file_first_kindBLL1, config_file_first_kindBLL1>();
+            services.AddTransient<Iconfig_file_first_kindDAO1, config_file_first_kindDAO1>();
            
             //config_file_second_kind
-            services.AddTransient<Iconfig_file_second_kindDAO, config_file_second_kindDAO1>();
-            services.AddTransient<Iconfig_file_second_kindBLL, config_file_second_kindBLL1>();
+            services.AddTransient<Iconfig_file_second_kindDAO1, config_file_second_kindDAO1>();
+            services.AddTransient<Iconfig_file_second_kindBLL1, config_file_second_kindBLL1>();
 
             //config_file_third_kind
-            services.AddTransient<Iconfig_file_third_kindBLL, config_file_third_kindBLL1>();
-            services.AddTransient<Iconfig_file_third_kindDAO, config_file_third_kindDAO1>();
+            services.AddTransient<Iconfig_file_third_kindBLL1, config_file_third_kindBLL1>();
+            services.AddTransient<Iconfig_file_third_kindDAO1, config_file_third_kindDAO1>();
 
             //config_public_char
-            services.AddTransient<Iconfig_public_charBLL, config_public_charBLL1>();
-            services.AddTransient<Iconfig_public_charDAO, config_public_charDAO1>();
+            services.AddTransient<Iconfig_public_charBLL1, config_public_charBLL1>();
+            services.AddTransient<Iconfig_public_charDAO1, config_public_charDAO1>();
 
             //config_majorb
-            services.AddTransient<Iconfig_majorbBLL, config_majorBLL1>();
-            services.AddTransient<Iconfig_majorDAO, config_majorDAO1>();
+            services.AddTransient<Iconfig_majorbBLL1, config_majorBLL1>();
+            services.AddTransient<Iconfig_majorDAO1, config_majorDAO1>();
 
             //config_major_kind
-            services.AddTransient<Iconfig_major_kindBLL, config_major_kindBLL1>();
-            services.AddTransient<Iconfig_major_kindDAO, config_major_kindDAO1>();
+            services.AddTransient<Iconfig_major_kindBLL1, config_major_kindBLL1>();
+            services.AddTransient<Iconfig_major_kindDAO1, config_major_kindDAO1>();
 
             //users
-            services.AddTransient<IuserBLL, usersBLL1>();
-            services.AddTransient<IusersDAO, usersDAO1>();
+            services.AddTransient<IuserBLL1, usersBLL1>();
+            services.AddTransient<IusersDAO1, usersDAO1>();
 
             //salary_standard
-            services.AddTransient<Isalary_standardBLL, salary_standardBLL1>();
-            services.AddTransient<Isalary_standardDAO, salary_standardDAO1>();
+            services.AddTransient<Isalary_standardBLL1, salary_standardBLL1>();
+            services.AddTransient<Isalary_standardDAO1, salary_standardDAO1>();
 
             //salary_standard_details
             services.AddTransient<Isalary_standard_detailsBLL, salary_standard_detailsBLL>();
@@ -79,13 +79,13 @@ namespace Coer1
             services.AddTransient<Isalary_grantDAO, salary_grantDAO>();
 
             //human_file
-            services.AddTransient<Ihuman_fileBLL, human_fileBLL>();
-            services.AddTransient<Ihuman_fileDAO, human_fileDAO1>();
+            services.AddTransient<Ihuman_fileBLL1, human_fileBLL1>();
+            services.AddTransient<Ihuman_fileDAO1, human_fileDAO1>();
 
             services.AddControllersWithViews();
             //读取连接字符串
             var conStr = configuration.GetConnectionString("SqlServerConnection");
-           services.AddDbContext<TescDbContext>();
+           services.AddDbContext<TescDbContext1>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

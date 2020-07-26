@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class config_major_kindBLL1 : Iconfig_major_kindBLL
+    public class config_major_kindBLL1 : Iconfig_major_kindBLL1
     {
-        private readonly Iconfig_major_kindDAO icmkd;
-        public config_major_kindBLL1(Iconfig_major_kindDAO icmkd) {
+        private readonly Iconfig_major_kindDAO1 icmkd;
+        public config_major_kindBLL1(Iconfig_major_kindDAO1 icmkd) {
             this.icmkd = icmkd;
         }
 

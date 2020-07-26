@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
-namespace IBLL
+namespace IDAO
 {
-   public interface Iconfig_majorbBLL
+   public interface Iconfig_majorDAO1
     {
         //查询   
         Task<List<config_majorModel1>> Load();
@@ -15,5 +15,7 @@ namespace IBLL
 
         //添加    
         Task<int> Add(config_majorModel1 cmm);
+
+
     }
 }

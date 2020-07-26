@@ -16,11 +16,11 @@ namespace Coer1.Controllers
 {
     public class SalaryStandardController : Controller
     {
-        TescDbContext tescDbContext = new TescDbContext();
+        TescDbContext1 tescDbContext = new TescDbContext1();
 
-        private Isalary_standardBLL issb;
+        private Isalary_standardBLL1 issb;
         private Isalary_standard_detailsBLL issdb;
-        public SalaryStandardController(Isalary_standardBLL issb, Isalary_standard_detailsBLL issdb)
+        public SalaryStandardController(Isalary_standardBLL1 issb, Isalary_standard_detailsBLL issdb)
         {
             this.issb = issb;
             this.issdb = issdb;

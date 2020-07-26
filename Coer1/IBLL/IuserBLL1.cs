@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Model;
 namespace IBLL
 {
-   public interface IuserBLL
+   public interface IuserBLL1
     {
         //登录
         Task<int> Login(usersModel1 u);

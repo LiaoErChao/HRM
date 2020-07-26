@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class config_majorBLL1 : Iconfig_majorbBLL
+    public class config_majorBLL1 : Iconfig_majorbBLL1
     {
 
-        private readonly Iconfig_majorDAO icmd;
-        public config_majorBLL1(Iconfig_majorDAO icmd) {
+        private readonly Iconfig_majorDAO1 icmd;
+        public config_majorBLL1(Iconfig_majorDAO1 icmd) {
             this.icmd = icmd;
         }
 

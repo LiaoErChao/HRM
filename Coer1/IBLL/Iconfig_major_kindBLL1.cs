@@ -6,7 +6,7 @@ using IDAO;
 using Model;
 namespace IBLL
 {
-   public interface Iconfig_major_kindBLL
+   public interface Iconfig_major_kindBLL1
     {
         //查询   
         Task<List<config_major_kindModel1>> Load();

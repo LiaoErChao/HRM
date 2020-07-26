@@ -14,9 +14,9 @@ namespace Coer1.Controllers
     public class salaryGrantController : Controller
     {
 
-        private readonly Ihuman_fileBLL ihfb;
+        private readonly Ihuman_fileBLL1 ihfb;
         private readonly Isalary_standard_detailsBLL issdb;
-        public salaryGrantController(Ihuman_fileBLL ihfb, Isalary_standard_detailsBLL issdb) {
+        public salaryGrantController(Ihuman_fileBLL1 ihfb, Isalary_standard_detailsBLL issdb) {
             this.ihfb = ihfb;
             this.issdb = issdb;
         }

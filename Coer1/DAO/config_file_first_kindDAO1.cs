@@ -9,13 +9,13 @@ using System.Linq;
 
 namespace DAO
 {
-   public class config_file_first_kindDAO1:Iconfig_file_first_kindDAO
+   public class config_file_first_kindDAO1:Iconfig_file_first_kindDAO1
     {
-        private readonly TescDbContext tescDbContext;
+        private readonly TescDbContext1 tescDbContext;
 
 
        
-        public config_file_first_kindDAO1(TescDbContext tescDbContext) {
+        public config_file_first_kindDAO1(TescDbContext1 tescDbContext) {
             this.tescDbContext = tescDbContext;
         
         }

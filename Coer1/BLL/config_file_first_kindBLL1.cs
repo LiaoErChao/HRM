@@ -7,10 +7,10 @@ using IDAO;
 using Model;
 namespace BLL
 {
-    public class config_file_first_kindBLL1 : Iconfig_file_first_kindBLL
+    public class config_file_first_kindBLL1 : Iconfig_file_first_kindBLL1
     {
-        private readonly Iconfig_file_first_kindDAO iconfig_File_First_KindDAO;
-        public config_file_first_kindBLL1(Iconfig_file_first_kindDAO iconfig_File_First_KindDAO)
+        private readonly Iconfig_file_first_kindDAO1 iconfig_File_First_KindDAO;
+        public config_file_first_kindBLL1(Iconfig_file_first_kindDAO1 iconfig_File_First_KindDAO)
         {
             this.iconfig_File_First_KindDAO = iconfig_File_First_KindDAO;
 

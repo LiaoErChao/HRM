@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 using Model;
-namespace IDAO
-{
-   public interface Iconfig_file_first_kindDAO
-    {
+using IDAO;
+using System.Threading.Tasks;
 
-        //查询所以
+namespace IBLL
+{
+   public interface Iconfig_file_first_kindBLL1
+    {       
+        //查询所有
         Task<List<config_file_first_kindModel1>> SelectAll();
 
-        //添加
+        //添加        
         Task<int> Add(config_file_first_kindModel1 cffk);
-
         //修改查询
         Task<config_file_first_kindModel1> UpSelect(int id);
 
@@ -22,5 +22,6 @@ namespace IDAO
 
         //删除
         Task<int> Delete(int id);
+
     }
 }

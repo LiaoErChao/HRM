@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Model;
 namespace IDAO
 {
-   public interface Iconfig_public_charDAO
+   public interface Iconfig_public_charDAO1
     {
         //查询所有
         Task<List<config_public_charModel1>> SelectAll();

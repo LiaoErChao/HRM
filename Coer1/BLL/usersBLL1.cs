@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class usersBLL1 : IuserBLL
+    public class usersBLL1 : IuserBLL1
     {
-        private readonly IusersDAO iud;
-        public usersBLL1(IusersDAO iud) {
+        private readonly IusersDAO1 iud;
+        public usersBLL1(IusersDAO1 iud) {
             this.iud = iud;
         }
 

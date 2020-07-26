@@ -12,11 +12,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAO
 {
-   public class human_fileDAO1:Ihuman_fileDAO
+   public class human_fileDAO1:Ihuman_fileDAO1
     {
-        private readonly TescDbContext tescDbContext;
+        private readonly TescDbContext1 tescDbContext;
 
-        public human_fileDAO1(TescDbContext tescDbContext)
+        public human_fileDAO1(TescDbContext1 tescDbContext)
         {
             this.tescDbContext = tescDbContext;
         }

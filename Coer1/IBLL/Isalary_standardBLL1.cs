@@ -6,7 +6,7 @@ using Model;
 
 namespace IBLL
 {
-   public interface Isalary_standardBLL
+   public interface Isalary_standardBLL1
     {
 
         //添加

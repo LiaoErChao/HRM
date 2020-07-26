@@ -11,9 +11,9 @@ namespace Coer1.Controllers
     public class positionController : Controller
     {
 
-        private readonly Iconfig_file_third_kindBLL icftkb;
-        private readonly Iconfig_file_second_kindBLL icfskb;
-        public positionController(Iconfig_file_third_kindBLL icftkb) {
+        private readonly Iconfig_file_third_kindBLL1 icftkb;
+        private readonly Iconfig_file_second_kindBLL1 icfskb;
+        public positionController(Iconfig_file_third_kindBLL1 icftkb) {
             this.icftkb = icftkb;
             
         }
