@@ -23,7 +23,7 @@ namespace WebAPI.Controllers
 
         [HttpGet]
         public async Task<IActionResult> config_majorLoad() {
-            List<config_majorModel> list = await icmb.Load();
+            List<config_majorModel1> list = await icmb.Load();
             return Content(JsonConvert.SerializeObject(list));
         
         }
@@ -37,7 +37,7 @@ namespace WebAPI.Controllers
         [HttpPost]
 
         public async Task<int> config_majorAdd([FromQuery]string major_kind_id,string majorkindname,string majorid,string majorname) {
-           config_majorModel cmm = new config_majorModel()            
+           config_majorModel1 cmm = new config_majorModel1()            
            { 
            major_kind_id=major_kind_id,
            major_kind_name= majorkindname,

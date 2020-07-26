@@ -27,7 +27,7 @@ namespace Coer1.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Load() {
-            List<config_file_second_kindModel> list =await icfsb.Load();
+            List<config_file_second_kindModel1> list =await icfsb.Load();
 
             return Content(JsonConvert.SerializeObject(list));
         }
@@ -37,7 +37,7 @@ namespace Coer1.Controllers
         //下拉框显示
         [HttpGet]
         public async Task<IActionResult> register() {
-            List<config_file_first_kindModel> list = await icfsb.SelectYiJiJG();
+            List<config_file_first_kindModel1> list = await icfsb.SelectYiJiJG();
             List<SelectListItem> list2 = new List<SelectListItem>();
 
             foreach (var item in list)
@@ -49,7 +49,7 @@ namespace Coer1.Controllers
         }
 
         //添加
-        public async Task<IActionResult> Add(config_file_second_kindModel cffskm)
+        public async Task<IActionResult> Add(config_file_second_kindModel1 cffskm)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace Coer1.Controllers
                 else
                 {
 
-                    List<config_file_first_kindModel> list = await icfsb.SelectYiJiJG();
+                    List<config_file_first_kindModel1> list = await icfsb.SelectYiJiJG();
                     List<SelectListItem> list2 = new List<SelectListItem>();
                     foreach (var item in list)
                     {
@@ -78,7 +78,7 @@ namespace Coer1.Controllers
             }
             else {
 
-                List<config_file_first_kindModel> list = await icfsb.SelectYiJiJG();
+                List<config_file_first_kindModel1> list = await icfsb.SelectYiJiJG();
                 List<SelectListItem> list2 = new List<SelectListItem>();
                 foreach (var item in list)
                 {
@@ -95,13 +95,13 @@ namespace Coer1.Controllers
         //修改查询
 
         public async Task<IActionResult> change(int id) {
-            config_file_second_kindModel cfskm = await icfsb.Up(id);
+            config_file_second_kindModel1 cfskm = await icfsb.Up(id);
             ViewData.Model = cfskm;
             return View();
         }
 
         //修改
-        public async Task<IActionResult> Update(config_file_second_kindModel cfskm) {
+        public async Task<IActionResult> Update(config_file_second_kindModel1 cfskm) {
 
             if (ModelState.IsValid)
             {

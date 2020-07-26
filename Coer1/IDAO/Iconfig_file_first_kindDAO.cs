@@ -9,16 +9,16 @@ namespace IDAO
     {
 
         //查询所以
-        Task<List<config_file_first_kindModel>> SelectAll();
+        Task<List<config_file_first_kindModel1>> SelectAll();
 
         //添加
-        Task<int> Add(config_file_first_kindModel cffk);
+        Task<int> Add(config_file_first_kindModel1 cffk);
 
         //修改查询
-        Task<config_file_first_kindModel> UpSelect(int id);
+        Task<config_file_first_kindModel1> UpSelect(int id);
 
         //修改
-        Task<int> Update(config_file_first_kindModel cffkm);
+        Task<int> Update(config_file_first_kindModel1 cffkm);
 
         //删除
         Task<int> Delete(int id);

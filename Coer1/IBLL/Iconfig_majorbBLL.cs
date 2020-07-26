@@ -8,12 +8,12 @@ namespace IBLL
    public interface Iconfig_majorbBLL
     {
         //查询   
-        Task<List<config_majorModel>> Load();
+        Task<List<config_majorModel1>> Load();
 
         //删除
         Task<int> Delete(int id);
 
         //添加    
-        Task<int> Add(config_majorModel cmm);
+        Task<int> Add(config_majorModel1 cmm);
     }
 }

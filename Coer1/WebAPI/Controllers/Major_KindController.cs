@@ -21,13 +21,14 @@ namespace WebAPI.Controllers
 
         [HttpGet]
         public async Task<IActionResult> config_major_kindLoad() {
-            List<config_major_kindModel> list =await icmkb.Load();
+            List<config_major_kindModel1> list =await icmkb.Load();
             return Content(JsonConvert.SerializeObject(list));       
         }
 
+
         [HttpPost]
         public async Task<int> config_major_kindAdd([FromQuery]string id,string name) {
-            config_major_kindModel cmkm = new config_major_kindModel() 
+            config_major_kindModel1 cmkm = new config_major_kindModel1() 
             {
             major_kind_id=id,
             major_kind_name=name

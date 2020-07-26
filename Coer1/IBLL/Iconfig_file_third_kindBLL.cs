@@ -9,24 +9,24 @@ namespace IBLL
     {
 
         //查询
-        Task<List<config_file_third_kindModel>> Select();
+        List<config_file_third_kindModel1> Select();
 
         //修改
-        Task<int> Update(config_file_third_kindModel cftkm);
+        Task<int> Update(config_file_third_kindModel1 cftkm);
 
         //修改查询
-        Task<config_file_third_kindModel> UpSelect(int id);
+        Task<config_file_third_kindModel1> UpSelect(int id);
 
         //删除
         Task<int> Delete(int id);
 
         //一级机构查询
-        Task<List<config_file_first_kindModel>> SelectYiJiJG();
+        List<config_file_first_kindModel1> SelectYiJiJG();
 
         //二级机构查询
-        Task<List<config_file_second_kindModel>> SelectErJiJG();
+        List<config_file_second_kindModel1> SelectErJiJG();
 
         //添加
-        Task<int> ADD(config_file_third_kindModel cftkm);
+        Task<int> ADD(config_file_third_kindModel1 cftkm);
     }
 }

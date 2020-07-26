@@ -24,7 +24,7 @@ namespace WebAPI.Controllers
         //查询所有
         public async Task<IActionResult> config_public_chars() {
 
-            List<config_public_charModel> list2 = await icpcb.SelectAll();
+            List<config_public_charModel1> list2 = await icpcb.SelectAll();
             string zhi = JsonConvert.SerializeObject(list2);
 
             return Content(zhi);
@@ -35,7 +35,7 @@ namespace WebAPI.Controllers
         [HttpPost]
         //添加
         public async Task<int> config_public_charAdd([FromQuery]string id,string name) {
-            config_public_charModel cpc = new config_public_charModel()
+            config_public_charModel1 cpc = new config_public_charModel1()
             {
                 attribute_kind=id,
                 attribute_name=name

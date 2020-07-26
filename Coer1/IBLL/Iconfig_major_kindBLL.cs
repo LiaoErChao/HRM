@@ -9,11 +9,11 @@ namespace IBLL
    public interface Iconfig_major_kindBLL
     {
         //查询   
-        Task<List<config_major_kindModel>> Load();
+        Task<List<config_major_kindModel1>> Load();
         //删除
         Task<int> Delete(int id);
 
         //添加    
-        Task<int> Add(config_major_kindModel cmm);
+        Task<int> Add(config_major_kindModel1 cmm);
     }
 }

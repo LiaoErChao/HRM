@@ -1,0 +1,272 @@
+﻿
+@using Model 
+@model salary_standardModel
+
+ 
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link href="~/css/table.css" rel="stylesheet" />
+    <script src="~/javascript/comm/comm.js"></script>
+
+    <script src="~/javascript/jquery-1.10.2.js"></script>
+
+    <title>无标题文档</title>
+
+</head>
+<body>
+
+
+    <form method="post" asp-action="register_Add">
+        <table width="100%">
+            <tr>
+                <td>
+                    <font color="black">
+                        您正在做的业务是：人力资源--薪酬标准管理--薪酬标准登记
+                    </font>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">
+                    <input type="submit" value="提 交" onclick="" class="BUTTON_STYLE1">
+                    <input type="reset" value="返 回" class="BUTTON_STYLE1">
+                </td>
+            </tr>
+        </table>
+        <table id="stable" width="100%" border="1" cellpadding=0 cellspacing=1
+               bordercolorlight=#848284 bordercolordark=#eeeeee
+               class="TABLE_STYLE1">
+            <tr>
+                <td width="74" class="TD_STYLE1">
+                    薪酬标准编号
+                </td>
+                <td width="168" class="TD_STYLE2">
+                    <input asp-for="@Model.standard_id" style="width: 130px" class = "INPUT_STYLE2" readonly = "readonly" value="@ViewBag.s"/>
+                    
+                </td>
+                <td width="83" class="TD_STYLE1">
+                    薪酬标准名称
+                </td>
+                <td width="171" class="TD_STYLE2">
+                    <input asp-for="@Model.standard_name" style="width: 130px" class="INPUT_STYLE2" />
+                   
+                </td>
+                <td width="170" class="TD_STYLE1">
+                    薪酬总额
+                </td>
+                <td width="138" class="TD_STYLE2">
+                    <input asp-for="@Model.salary_sum" style="width: 130px" class="INPUT_STYLE2" readonly = "readonly" id="sumSalary" />                   
+                </td>
+                <td width="103" class="TD_STYLE1">
+                    &nbsp;
+                </td>
+                <td width="95" height="26" class="TD_STYLE2">
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td class="TD_STYLE1">
+                    制定人
+                </td>
+                <td class="TD_STYLE2">
+                    <input asp-for="@Model.designer" style="width: 130px" class="INPUT_STYLE2" />
+                   
+                </td>
+                <td class="TD_STYLE1">
+                    登记人
+                </td>
+                <td class="TD_STYLE2">
+                    <input type="text" asp-for="@Model.register" name="standard.register" value="@ViewBag.aa" readonly="readonly" class="INPUT_STYLE2" style="width: 130px">
+                    
+                </td>
+                <td class="TD_STYLE1">
+                    登记时间
+                </td>
+                <td class="TD_STYLE2">
+                    <input asp-for="@Model.regist_time"  class="INPUT_STYLE2" id = "Tdate" readonly = "readonly"/>
+                    
+                </td>
+                <td class="TD_STYLE1">
+                    &nbsp;
+                </td>
+                <td class="TD_STYLE2">
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td class="TD_STYLE1">
+                    备注
+                </td>
+                <td colspan="7" class="TD_STYLE2">
+                    <input asp-for="@Model.remark"  class="INPUT_STYLE2" />
+                   
+                </td>
+            </tr>
+
+
+
+
+        </table>
+        <div id="Dan">
+            <input id="quan" type="checkbox" />全选&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="Button1" type="button" value="请选择薪酬组成" /><br />
+            <input id="cc" type="checkbox" class="a" name="b" value="出差补助" />出差补助 &nbsp;&nbsp;<input id="jt" type="checkbox" class="a" name="b" value="交通补助" />交通补助&nbsp;&nbsp;
+            <input id="zf" type="checkbox" class="a" name="b" value="住房补助" />住房补助 &nbsp;&nbsp;<input id="gz" type="checkbox" class="a" name="b" value="基本工资" />基本工资&nbsp;&nbsp;
+            <input id="nzj" type="checkbox" class="a" name="b" value="年终奖" />年终奖&nbsp;&nbsp;<input id="wc" type="checkbox" class="a" name="b" value="误餐补助" />误餐补助 &nbsp;&nbsp;
+        </div>
+
+        <div id="table_carear"></div>
+
+        <p>
+            &nbsp;
+        </p>
+    </form>
+
+    <script type="text/javascript">
+        function check() {
+
+            var designer = document.getElementById("designer");
+            var standardName = document.getElementById("standardName");
+            if (designer.value.length <= 0) {
+                alert("制定人不可为空!!!");
+                return;
+            }
+            if (standardName.value.length <= 0) {
+                alert("薪酬标准名称不可为空!!!");
+                return;
+            }
+            document.forms[0].submit();
+        }
+        function countMoney(obj, o) {
+
+            //    if (isNaN(document.getElementById(o).value) || document.getElementById(o).value < 0) {
+            //        alert("金额填写错误!");
+            //        document.getElementById(o).value = "0.00";
+            //        return;
+            //}
+
+            var sum = 0;
+            for (var i = 1; i <= obj; i++) {
+                var salary = document.getElementById("salary" + i).value;
+                if (salary == "") {
+                    salary = "0.00";
+                }
+                sum = Number(sum) + Number(salary);
+
+            }
+            document.getElementById("sumSalary").value = sum;
+
+        }
+
+
+        function time() {
+            var tdate = document.getElementById("Tdate");
+            var d = new Date();
+            var y = d.getFullYear();
+            var moth = d.getMonth() + 1;
+            var date = d.getDate();
+            var h = d.getHours();
+            var m = d.getMinutes();
+            var s = d.getSeconds();
+            var hh = 20 - 1 - h;
+            var mm = 60 - 1 - m;
+            var ss = 60 - s;
+            if (hh > 0) {
+                mm = mm + 60 * hh;
+            }
+            if (moth < 10) {
+                moth = "0" + moth;
+            }
+            if (date < 10) {
+                date = "0" + date;
+            }
+            if (h < 10) {
+                h = "0" + h;
+            }
+            if (m < 10) {
+                m = "0" + m;
+            }
+            if (s < 10) {
+                s = "0" + s;
+            }
+            if (mm < 10) {
+                mm = "0" + mm;
+            }
+            if (ss < 10) {
+                ss = "0" + ss;
+            }
+
+            tdate.value = y + "-" + moth + "-" + date + " " + h + ":" + m + ":" + s;
+
+        }
+        window.onload = time;
+        var out = window.setInterval(time, 1000);
+
+
+        $("#Button1").click(function () {
+            var XZche = $("input[name^='b']:checked");
+            for (var ii = 0; ii < XZche.length; ii++) {
+                if (XZche[ii].checked == true) {
+                    $("#Dan").hide();
+                    $("#table_carear").show();
+                    var table = $('<table width="100%" border="1" cellpadding=0 cellspacing=1 bordercolorlight=#848284 bordercolordark=#eeeeee class="TABLE_STYLE1"  ></table>');
+                    $("#table_carear").append(table);
+                    var tr = $('<tr class="TD_STYLE1"></tr>');
+                    var td = $('<td align="center">序号</td>');
+                    var td1 = $('<td>薪酬项目名称</td>');
+                    var td2 = $('<td colspan="3">金额</td>');
+                    tr.append(td, td1, td2);
+                    $("#table_carear table").append(tr);
+
+                    var checkbox = $("input[name^='b']:checked");
+                    for (var i = 0; i < checkbox.length; i++) {
+                        var tr = $('<tr class="TD_STYLE2"></tr>');
+                        var td = $('<td align="center">' + (i + 1) + '<input type="hidden" name="details.itemId" value="' + (i + 1) + '"></td>');
+                        var td1 = $(' <td colspan="3">' + checkbox[i].value + '<input type="hidden" id="details' + (i + 1) + '" name="details.itemName"  value="' + checkbox[i].value + '"></td>');
+                        var td2 = $(' <td><input type="text" id="salary' + (i + 1) + '" value="0.00" name="details.salary"  onkeyup="countMoney(' + (i + 1) + ',salary' + (i + 1) + ')" onBlur="jia(' + (i + 1) + ')" class="INPUT_STYLE2"></td>');
+                        tr.append(td, td1, td2);
+                        $("#table_carear table").append(tr);
+                    }
+                    return true;
+                }
+            }
+            alert("请先勾选薪酬的组成!!!");
+
+        })
+
+
+
+        $("#salary")
+
+        $("#quan").click(function () {
+
+            var hobby = document.getElementsByClassName("a");
+            if (this.checked == true) {
+
+                for (var i = 0; i < hobby.length; i++) {
+                    var h = hobby[i];
+                    h.checked = true;
+                }
+
+            } else {
+                for (var i = 0; i < hobby.length; i++) {
+                    var h = hobby[i];
+                    h.checked = false;
+                }
+
+            }
+
+
+
+        })
+
+
+
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,248 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="~/css/table.css" rel="stylesheet" />
+    <script src="~/jquery/dist/jquery.js"></script>
+    <script src="~/vue.js"></script>
+    <script src="~/echarts.js"></script>
+    <link href="~/bootstrap.css" rel="stylesheet" />
+    <script src="~/bootstrap.js"></script>
+    <title>无标题文档</title>
+    <style type="text/css">
+        <!--
+        .style3 {
+            color: #0000CC
+        }
+
+        td {
+            text-align: center;
+        }
+        -->
+    </style>
+</head>
+
+<body  style="background-color:#FFFFCC">
+    <div id="div1">
+        <form method="post" action="salaryGrantAction.do?methodName=doSeatchSalaryGrant">
+            <table width="100%">
+                <tr>
+                    <td style="text-align: left">
+                        <font color="black">您正在做的业务是:人力资源管理--薪酬发放管理--薪酬发放复核</font>
+                        <br><br><br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" style="text-align: left">
+                        薪酬单编号：{{id}}
+                        <input type="hidden" name="salaryGrant.salaryGrantId" value="HS1353753198460">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: left">
+                        机构：
+
+
+
+                        Ⅰ级结构
+
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left">
+                        本机构总人数:{{Count}}
+                        ，基本薪酬总数:{{salary_sum}}
+                        ，实发总额:<span id="salarySum_sum">{{paid_salary_sum}}</span>
+
+                    </td>
+                    <td style="text-align: right">
+
+                        登记人:{{djr}}
+                        登记时间： {{djsj}}
+
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" border="1" cellpadding=0 cellspacing=1
+                   bordercolorlight=#848284 bordercolordark=#eeeeee
+                   class="TABLE_STYLE1">
+                <tr>
+                    <td class="TD_STYLE1">
+                        <span>序号</span>
+                    </td>
+                    <td class="TD_STYLE1">
+                        <span>档案编号</span>
+                    </td>
+                    <td class="TD_STYLE1">
+                        <span>姓名</span>
+                    </td>
+
+                    <td class="TD_STYLE1">
+                        <span>详细信息</span>
+                    </td>
+
+
+                    <td class="TD_STYLE1">
+                        实发金额
+                    </td>
+
+                </tr>
+
+                <input type="hidden" name="grantDetails[0].salaryGrantId" value="HS1353753198460">
+                <input type="hidden" id="salaryStandardSum1" name="grantDetails[0].salaryStandardSum" value="1332.0" />
+                <tr class="TD_STYLE2" v-for="(item,index) in da">
+
+                    <td>
+                        {{index+1}}
+                    </td>
+                    <td>
+                        {{item.human_id}}
+                    </td>
+                    <td>
+                        {{item.human_name}}
+                    </td>
+
+
+
+                    <td>
+                        <a href="#" v-on:click="Cha(item.salary_standard_id)" data-toggle="modal" data-target="#myModal">信息详情</a>
+                    </td>
+
+                    <td>
+                        {{item.paid_salary_sum}}
+                    </td>
+
+                </tr>
+
+
+
+
+            </table>
+            <br>
+            <center>
+                <input type="button" style="width: 200;height: 50;font-size: 20px;font-weight: bold;border-bottom-style: ridge;cursor: pointer" onclick="javascript:window.history.back();" value="返 回">
+
+            </center>
+
+        </form>
+
+    </div>
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="main" style="width: 600px;height:400px;"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!-- 模态框（Modal） -->
+
+    <script type="text/javascript">
+
+        var myChart = echarts.init(document.getElementById('main'));
+        var option = {
+            title: {
+                text: '薪酬详细'
+            },
+            tooltip: {},
+            legend: {
+                data: ['薪酬']
+            },
+            xAxis: {
+                data: []
+            },
+            yAxis: {},
+            series: [{
+                name: '薪酬',
+                type: 'bar',
+                data: []
+            }]
+        };
+
+        var vm = new Vue({
+            el: "#div1",
+            data: {
+                da: [],
+                salary_sum: "",
+                paid_salary_sum: "",
+                Count: "",
+                djsj: "",
+                djr:"",
+                id:""
+            },
+            methods: {
+                load: function () {
+                    var t = this;
+                    $.ajax({
+                        url: "/salaryGrant/query1",
+                        type: "post",
+                        success: function (msg) {
+                            var z = eval("(" + msg + ")");
+                            t.da = z["list"];
+                            t.salary_sum = z["salary_sum"];
+                            t.paid_salary_sum = z["paid_salary_sum"];
+                            t.Count = z["Count"];
+                            t.djsj = z["djsj"];
+                            t.djr = z["djr"];
+                            t.id = z["id"];
+                        }
+                    })
+                },
+                Cha: function (id) {
+
+                    $.ajax({
+                        url: "/salaryGrant/Select/?id=" + id,
+                        type: "post",
+                        success: function (msg) {
+                            var z = eval("(" + msg + ")");
+                            var arr = [];
+                            var arr2 = [];
+                            for (var i = 0; i < z.length; i++) {
+                                arr.push(z[i]["item_name"]);
+                                arr2.push(z[i]["salary"])
+
+                            }
+                            myChart.setOption({
+                                xAxis: {
+                                    da: arr
+                                },
+                                series: [{
+                                    data: arr2
+                                }]
+
+                            })
+
+                        }
+                    });
+
+                },
+            },
+            mounted: function () {
+                this.load();
+            }
+
+        });
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
+

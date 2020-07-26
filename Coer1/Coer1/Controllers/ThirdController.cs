@@ -23,7 +23,7 @@ namespace Coer1.Controllers
         }
         public async Task<IActionResult> Load()
         {
-            List<config_file_third_kindModel> list = await icftkb.Select();
+            List<config_file_third_kindModel1> list =  icftkb.Select();
             return Content(JsonConvert.SerializeObject(list));
         }
 
@@ -31,7 +31,7 @@ namespace Coer1.Controllers
         //下拉查询
         [HttpGet]
         public async Task<IActionResult> register() {
-            List<config_file_first_kindModel> list = await icftkb.SelectYiJiJG();
+            List<config_file_first_kindModel1> list =  icftkb.SelectYiJiJG();
             List<SelectListItem> list2 = new List<SelectListItem>();
 
             foreach (var item in list)
@@ -41,7 +41,7 @@ namespace Coer1.Controllers
             ViewBag.a = list2;
 
 
-            List<config_file_second_kindModel> list3 = await icftkb.SelectErJiJG();
+            List<config_file_second_kindModel1> list3 =  icftkb.SelectErJiJG();
             List<SelectListItem> list4 = new List<SelectListItem>();
             foreach (var item in list3)
             {
@@ -53,7 +53,7 @@ namespace Coer1.Controllers
 
         //添加
         [HttpPost]
-        public async Task<IActionResult> register(config_file_third_kindModel cftkm) {
+        public async Task<IActionResult> register(config_file_third_kindModel1 cftkm) {
 
             if (ModelState.IsValid)
             {
@@ -71,7 +71,7 @@ namespace Coer1.Controllers
                 }
                 else
                 {
-                    List<config_file_first_kindModel> list = await icftkb.SelectYiJiJG();
+                    List<config_file_first_kindModel1> list =  icftkb.SelectYiJiJG();
                     List<SelectListItem> list2 = new List<SelectListItem>();
 
                     foreach (var item in list)
@@ -81,7 +81,7 @@ namespace Coer1.Controllers
                     ViewBag.a = list2;
 
 
-                    List<config_file_second_kindModel> list3 = await icftkb.SelectErJiJG();
+                    List<config_file_second_kindModel1> list3 =  icftkb.SelectErJiJG();
                     List<SelectListItem> list4 = new List<SelectListItem>();
                     foreach (var item in list3)
                     {
@@ -93,7 +93,7 @@ namespace Coer1.Controllers
                 }
             }
             else {
-                List<config_file_first_kindModel> list = await icftkb.SelectYiJiJG();
+                List<config_file_first_kindModel1> list =  icftkb.SelectYiJiJG();
                 List<SelectListItem> list2 = new List<SelectListItem>();
 
                 foreach (var item in list)
@@ -103,7 +103,7 @@ namespace Coer1.Controllers
                 ViewBag.a = list2;
 
 
-                List<config_file_second_kindModel> list3 = await icftkb.SelectErJiJG();
+                List<config_file_second_kindModel1> list3 =  icftkb.SelectErJiJG();
                 List<SelectListItem> list4 = new List<SelectListItem>();
                 foreach (var item in list3)
                 {
@@ -129,7 +129,7 @@ namespace Coer1.Controllers
 
         //修改
         [HttpPost]
-        public async Task<IActionResult> change(config_file_third_kindModel cftkm) {
+        public async Task<IActionResult> change(config_file_third_kindModel1 cftkm) {
             if (ModelState.IsValid) {
                 int result = await icftkb.Update(cftkm);
                 if (result > 0)

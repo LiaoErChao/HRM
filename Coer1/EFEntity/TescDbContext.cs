@@ -182,5 +182,12 @@ namespace EFEntity
         public DbSet<config_public_char> publics{ get; set; }
         public DbSet<config_major_kind> cfmk { get; set; }
         public DbSet<config_major> cfm { get; set; }
+        public DbSet<users> u { get; set; }
+        public DbSet<salary_standard> ss { get; set; }
+        public DbSet<salary_standard_details> ssd { get; set; }
+        public DbSet<salary_grant> sg { get; set; }
+        public DbSet<salary_grant_details> sgd { get; set; }
+
+        public DbSet<human_file> hf { get; set; }
     }
 }

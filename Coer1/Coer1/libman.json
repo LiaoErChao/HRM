@@ -3,18 +3,11 @@
   "defaultProvider": "unpkg",
   "libraries": [
     {
-      "library": "bootstrap@4.5.0",
-      "destination": "wwwroot/bootstrap/",
+      "provider": "cdnjs",
+      "library": "echarts@4.8.0",
+      "destination": "wwwroot/echarts/",
       "files": [
-        "dist/css/bootstrap.css",
-        "dist/js/bootstrap.js"
-      ]
-    },
-    {
-      "library": "jquery@3.5.1",
-      "destination": "wwwroot/jquery/",
-      "files": [
-        "dist/jquery.js"
+        "echarts.js"
       ]
     }
   ]

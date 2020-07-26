@@ -24,18 +24,22 @@ namespace WebAPI
             services.AddControllers();
             services.AddDbContext<TescDbContext>();
 
-            services.AddTransient<Iconfig_public_charBLL, config_public_charBLL>();
-            services.AddTransient<Iconfig_public_charDAO, config_public_charDAO>();
+            services.AddTransient<Iconfig_public_charBLL, config_public_charBLL1>();
+            services.AddTransient<Iconfig_public_charDAO, config_public_charDAO1>();
 
             //config_majorb
-            services.AddTransient<Iconfig_majorbBLL, config_majorBLL>();
-            services.AddTransient<Iconfig_majorDAO, config_majorDAO>();
+            services.AddTransient<Iconfig_majorbBLL, config_majorBLL1>();
+            services.AddTransient<Iconfig_majorDAO, config_majorDAO1>();
 
             //config_major_kind
-            services.AddTransient<Iconfig_major_kindBLL, config_major_kindBLL>();
-            services.AddTransient<Iconfig_major_kindDAO, config_major_kindDAO>();
-            //  services.AddControllersWithViews();
+            services.AddTransient<Iconfig_major_kindBLL, config_major_kindBLL1>();
+            services.AddTransient<Iconfig_major_kindDAO, config_major_kindDAO1>();
 
+            //users
+            services.AddTransient<IuserBLL, usersBLL1>();
+            services.AddTransient<IusersDAO, usersDAO1>();
+
+            //  services.AddControllersWithViews();
             //¿çÓò
             services.AddCors(option => option.AddPolicy("AllowCors", bu => bu.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
            

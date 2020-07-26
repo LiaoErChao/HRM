@@ -31,7 +31,7 @@ using Newtonsoft.Json;
         [HttpPost]
         public async Task<IActionResult> Select() {
 
-            List<config_file_first_kindModel> list = await config.SelectAll();
+            List<config_file_first_kindModel1> list = await config.SelectAll();
 
             return Content(JsonConvert.SerializeObject(list));
         }
@@ -42,7 +42,7 @@ using Newtonsoft.Json;
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(config_file_first_kindModel ffkm) {
+        public async Task<IActionResult> Add(config_file_first_kindModel1 ffkm) {
 
             if (ModelState.IsValid) {
                 int result = await config.Add(ffkm);
@@ -67,12 +67,12 @@ using Newtonsoft.Json;
 
         public async Task<IActionResult> change(int id) {
             
-            config_file_first_kindModel cffkm = await config.UpSelect(id);
+            config_file_first_kindModel1 cffkm = await config.UpSelect(id);
             ViewData.Model = cffkm;
             return View();
         }
 
-        public async Task<IActionResult> Update(config_file_first_kindModel cffkm) {
+        public async Task<IActionResult> Update(config_file_first_kindModel1 cffkm) {
 
 
             if (ModelState.IsValid)
