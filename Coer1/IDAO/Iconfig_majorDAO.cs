@@ -9,6 +9,7 @@ namespace IDAO
     {
         //查询   
         Task<List<config_majorModel>> Load();
+        List<config_majorModel> Select();
 
         //删除
         Task<int> Delete(int id);

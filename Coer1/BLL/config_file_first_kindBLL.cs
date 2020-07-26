@@ -36,6 +36,11 @@ namespace BLL
             return iconfig_File_First_KindDAO.SelectAll();
         }
 
+        public List<config_file_first_kindModel> Selects()
+        {
+            return iconfig_File_First_KindDAO.Selects();
+        }
+
 
         //修改
         public Task<int> Update(config_file_first_kindModel cffkm)

@@ -72,6 +72,25 @@ namespace DAO
             return zhi;
         }
 
+        public List<config_file_first_kindModel> Selects()
+        {
+            var list = tescDbContext.configs.ToList();
+            List<config_file_first_kindModel> list2 = new List<config_file_first_kindModel>();
+            foreach (var item in list)
+            {
+                config_file_first_kindModel cffkm = new config_file_first_kindModel()
+                {
+                    ffk_id = item.ffk_id,
+                    first_kind_id = item.first_kind_id,
+                    first_kind_name = item.first_kind_name,
+                    first_kind_salary_id = item.first_kind_salary_id,
+                    first_kind_sale_id = item.first_kind_sale_id
+                };
+                list2.Add(cffkm);
+            }
+            return list2;
+        }
+
         //修改
         public async Task<int> Update(config_file_first_kindModel cffkm)
         {

@@ -10,6 +10,7 @@ namespace IBLL
     {
         //查询   
         Task<List<config_major_kindModel>> Load();
+        List<config_major_kindModel> Select();
         //删除
         Task<int> Delete(int id);
 

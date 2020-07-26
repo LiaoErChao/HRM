@@ -1,0 +1,188 @@
+﻿
+@{
+    Layout = null;
+}
+@using Model;
+@model config_file_third_kindModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>register_locate</title>
+    <link href="~/CSS/table.css" rel="stylesheet" />
+    <link href="~/javascript/calendar/calendar-win2k-cold-1.css" rel="stylesheet" />
+    <script src="~/javascript/comm/comm.js"></script>
+    <script src="~/javascript/comm/list.js"></script>
+    <script src="~/javascript/jquery-1.7.2.js"></script>
+    <script src="~/javascript/comm/time.js"></script>
+    <script src="~/javascript/calendar-ch.js"></script>
+    <script src="~/javascript/calendar/cal.js"></script>
+    <link href="~/CSS/cwcalendar.css" rel="stylesheet" />
+    <script src="~/jquery-1.10.2.js"></script>
+    <script src="~/vue.js"></script>
+</head>
+<body>
+    @*@using (Ajax.BeginForm("Register_locate", new AjaxOptions() { HttpMethod = "Post", OnSuccess = "Ti" }))
+        {*@
+    <div id="div1">
+        <form name="diaodong" method="post" asp-action="register_locate">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <font color="black">您正在做的业务是：人力资源--调动管理--调动登记查询 </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <a href="register_list.cshtml">
+                            <input type="submit" value="查询"
+                                   class="BUTTON_STYLE1">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="page.startPage" value="0">
+            <table width="101%" border="1" cellpadding=0 cellspacing=1
+                   bordercolorlight=#848284 bordercolordark=#eeeeee
+                   class="TABLE_STYLE1">
+                <tr class="TR_STYLE1">
+                    <td width="13%" class="TD_STYLE1">
+                        请选择员工所在I级机构
+                    </td>
+                    <td width="29%" class="TD_STYLE2">
+                        <select v-on:change="load2()" name="emajorRelease.firstKindId" id="Did" class="SELECT_STYLE1">
+                            <option value="">--请选择--</option>
+
+                            <option v-for="(item,index) in dt" id="ss" :value="item.first_kind_id">{{item.first_kind_name}}</option>
+
+
+                        </select>
+                        @*@Html.DropDownListFor(e => e.first_kind_name, ViewData["first"] == null ? new List<SelectListItem> { new SelectListItem { Text = "-----请选择一级机构-----", Value = "" } } : (ViewData["first"] as IEnumerable<SelectListItem>), "请选择一级机构", new { @class = "SELECT_STYLE2", onchange = "select1(this)" })*@
+                    </td>
+                    <td width="13%" class="TD_STYLE1">
+                        请选择员工所在II级机构
+                    </td>
+                    <td width="45%" class="TD_STYLE2">
+                        <select name="emajorRelease.secondKindId" id="id2" class="SELECT_STYLE1" v-on:change="load3()">
+                            <option value="">--请选择--</option>
+                            <option v-for="(item,index) in dt2" :value="item.second_kind_id">{{item.second_kind_name}}</option>
+                        </select>
+                        @*@Html.DropDownListFor(e => e.second_kind_name, ViewData["second"] == null ? new Li
+                            st<SelectListItem> { new SelectListItem { Text = "-----请选择二级机构-----", Value = "" } } : (ViewData["second"] as IEnumerable<SelectListItem>), "请选择二级机构", new { @class = "SELECT_STYLE2", onchange = "select2(this)" })*@
+                    </td>
+                    <td width="0%"></td>
+                </tr>
+                <tr class="TR_STYLE1">
+                    <td width="13%" class="TD_STYLE1">
+                        请选择员工所在III级机构
+                    </td>
+                    <td width="29%" class="TD_STYLE2">
+                        <select name="emajorRelease.thirdKindId" id="id3" class="SELECT_STYLE1">
+                            <option value="">--请选择--</option>
+                            <option v-for="(item,index) in dt3" :value="item.third_kind_id">{{item.third_kind_name}}</option>
+                        </select>
+                        @*@Html.DropDownListFor(e => e.third_kind_name, ViewData["third"] == null ? new List<SelectListItem> { new SelectListItem { Text = "-----请选择三级机构-----", Value = "" } } : (ViewData["Third"] as IEnumerable<SelectListItem>), "请选择三级机构", new { @class = "SELECT_STYLE2" })*@
+                    </td>
+                    <td height="18" class="TD_STYLE1">
+                        请输入建档时间
+                    </td>
+                    <td width="45%" class="TD_STYLE2">
+                        <input name="utilbean.startDate" onclick="aa('utilbean.startDate')" type="text" class="INPUT_STYLE2" id="date_start" style="width:24% " value="" size="30">
+                        至<input type="text" name="utilbean.endDate" onclick="aa('utilbean.endDate')" value="" style="width:24% " class="INPUT_STYLE2" id="date_end">
+                        （YYYY-MM-DD）
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    @*}*@
+<script type="text/javascript">
+    var vm = new Vue({
+        el: "#div1",
+        data: {
+            dt: [],
+            dt2: [],
+            dt3: [],
+            dt4: [],
+            dt5: [],
+            id: "",
+            id2: "",
+            id4: "",
+            id5: "",
+        },
+        methods: {
+            load: function () {
+                var t = this;
+                $.ajax({
+                    url: "/Transfer/Index1",
+                    type: "post",
+                    success: function (msg) {
+                        var d = eval("(" + msg + ")");
+                        t.dt = d;
+
+                    }
+                });
+            },
+            load2: function () {
+                var t = this;
+                //alert($("#Did").val() + "---" + $("#ss").val());
+                $.ajax({
+                    data: "id=" + $("#Did").val(),
+                    url: "/Transfer/Index2",
+                    type: "post",
+                    success: function (msg) {
+                        var arry = eval("(" + msg + ")");
+                        t.dt2 = arry;
+                    }
+                })
+            },
+            load3: function () {
+
+
+                var t = this;
+                $.ajax({
+                    data: "id=" + $("#id2").val(),
+                    url: "/Transfer/ThiSecond",
+                    type: "post",
+                    success: function (msg) {
+                        var arry = eval("(" + msg + ")");
+                        t.dt3 = arry;
+                    }
+                })
+            },
+            //load4: function () {
+            //    var t = this;
+            //    $.ajax({
+            //        url: "/position/position_registerMakind",
+            //        type: "post",
+            //        success: function (msg) {
+            //            var d = eval("(" + msg + ")");
+            //            t.dt4 = d;
+
+            //        }
+            //    });
+            //},
+            //load5: function () {
+            //    id4 = $("#id4").val();
+            //    var t = this;
+            //    $.ajax({
+            //        data: "id=" + $("#id4").val(),
+            //        url: "/position/position_registerMajor",
+            //        type: "post",
+            //        success: function (msg) {
+            //            var arry = eval("(" + msg + ")");
+            //            t.dt5 = arry;
+            //        }
+            //    })
+            //},
+        },
+        mounted: function () {
+            this.load();
+            this.load4();
+
+        }
+    });
+</script>
+</body>
+</html>

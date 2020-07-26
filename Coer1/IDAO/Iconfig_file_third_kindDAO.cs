@@ -10,6 +10,8 @@ namespace IDAO
         //查询
         Task<List<config_file_third_kindModel>> Select();
 
+        List<config_file_third_kindModel> Selectt();
+
         //修改
         Task<int> Update(config_file_third_kindModel cftkm);
 

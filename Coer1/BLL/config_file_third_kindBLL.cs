@@ -38,6 +38,11 @@ namespace BLL
             return icftkd.SelectErJiJG();
         }
 
+        public List<config_file_third_kindModel> Selectt()
+        {
+            return icftkd.Selectt();
+        }
+
         //一级机构查询
         public Task<List<config_file_first_kindModel>> SelectYiJiJG()
         {

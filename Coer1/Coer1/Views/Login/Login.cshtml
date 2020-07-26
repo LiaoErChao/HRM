@@ -1,0 +1,85 @@
+﻿@model usersModel;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <script src="~/javascript/input_control/jquery.validate.js"></script>
+    <script src="~/jquery-1.10.2.js"></script>
+    <script src="~/vue.js"></script>
+</head>
+<body>
+    <form asp-action="Login" method="post">
+
+        <table cellspacing=0 cellpadding=0 width=900 align=center border=0>
+            <tbody>
+                <tr>
+                    <td style="height: 105px">
+                        <img src="~/images/login_11.gif" border=0>
+                    </td>
+                </tr>
+                <tr>
+                    <td style=" background: url(../images/login_22.jpg)" height=300>
+                        <table height=300 cellpadding=0 width=900 border=0>
+                            <tbody>
+                                <tr>
+                                    <td colspan=2 height=35></td>
+                                </tr>
+                                <tr>
+                                    <td width=360></td>
+                                    <td>
+                                        <table cellspacing=0 cellpadding=2 border=0>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="height: 28px" width=80>
+                                                        登 录 名：
+                                                    </td>
+                                                    <td style="height: 28px" width=150>
+                                                        <input asp-for="@Model.User_name" style="width: 130px" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="height: 28px">
+                                                        登录密码：
+                                                    </td>
+                                                    <td style="height: 28px">
+                                                        <input type="password" asp-for="@Model.User_password" style="width: 130px" />
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td style="height: 18px"></td>
+                                                    <td style="height: 18px"></td>
+                                                    <td style="height: 18px"></td>
+
+                                                </tr>
+                                                <tr>
+
+                                                    <td>
+                                                        <input type="submit" value="登录" style="cursor: pointer;" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="~/images/login_33.jpg" border=0>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </form>
+</body>
+</html>

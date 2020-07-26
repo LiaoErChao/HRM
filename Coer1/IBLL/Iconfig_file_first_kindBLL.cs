@@ -11,6 +11,7 @@ namespace IBLL
     {       
         //查询所有
         Task<List<config_file_first_kindModel>> SelectAll();
+        List<config_file_first_kindModel> Selects();
 
         //添加        
         Task<int> Add(config_file_first_kindModel cffk);

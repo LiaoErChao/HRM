@@ -55,10 +55,33 @@ namespace Coer1
             //config_major_kind
             services.AddTransient<Iconfig_major_kindBLL, config_major_kindBLL>();
             services.AddTransient<Iconfig_major_kindDAO, config_major_kindDAO>();
+
+            //users
+            services.AddTransient<IusersBLL, usersBLL>();
+            services.AddTransient<IusersDAO, usersDAO>();
+            //human_file
+            services.AddTransient<Ihuman_fileBLL, human_fileBLL>();
+            services.AddTransient<Ihuman_fileDAO, human_fileDAO>();
+            //config_major_kind
+            services.AddTransient<Iconfig_major_kindBLL, config_major_kindBLL>();
+            services.AddTransient<Iconfig_major_kindDAO, config_major_kindDAO>();
+            //major_change
+            services.AddTransient<Imajor_changeBLL, major_changeBLL>();
+            services.AddTransient<Imajor_changeDAO, major_changeDAO>();
+            //
+            services.AddTransient<Isalary_standardBLL, salary_standardBLL>();
+            services.AddTransient<Isalary_standardDAO, salary_standardDAO>();
+            //role
+            services.AddTransient<IroleBLL, roleBLL>();
+            services.AddTransient<IroleDAO, roleDAO>();
+
             services.AddControllersWithViews();
+            services.AddDistributedMemoryCache().AddSession();
+
+
             //读取连接字符串
             var conStr = configuration.GetConnectionString("SqlServerConnection");
-           services.AddDbContext<TescDbContext>();
+            services.AddDbContext<TescDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,6 +104,7 @@ namespace Coer1
 
             //3
             app.UseRouting();
+            app.UseSession();
             //4
             app.UseEndpoints(endpoints =>
             {
@@ -90,7 +114,7 @@ namespace Coer1
                 //});
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Major_Kind}/{action=major_kind}/{id?}");
+                    pattern: "{controller=Login}/{action=Login}/{id?}");
             });
 
             //1->2->3->4进

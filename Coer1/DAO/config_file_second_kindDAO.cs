@@ -74,6 +74,27 @@ namespace DAO
             return zhi;
         }
 
+        public List<config_file_second_kindModel> Loads()
+        {
+            var list = tescDbContext.second.ToList();
+            List<config_file_second_kindModel> list2 = new List<config_file_second_kindModel>();
+            foreach (var item in list)
+            {
+                config_file_second_kindModel cffkm = new config_file_second_kindModel()
+                {
+                    first_kind_id = item.first_kind_id,
+                    first_kind_name = item.first_kind_name,
+                    fsk_id = item.fsk_id,
+                    second_kind_id = item.second_kind_id,
+                    second_kind_name = item.second_kind_name,
+                    second_salary_id = item.second_salary_id,
+                    second_sale_id = item.second_sale_id
+                };
+                list2.Add(cffkm);
+            }
+            return list2;
+        }
+
         //查询一级机构编号
         public Task<List<config_file_first_kindModel>> SelectYiJiJG()
         {

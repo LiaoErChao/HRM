@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
@@ -10,6 +11,7 @@ namespace IDAO
 
         //查询
         Task<List<config_file_second_kindModel>> Load();
+        List<config_file_second_kindModel> Loads();
 
         //查询一级机构编号
         Task<List<config_file_first_kindModel>> SelectYiJiJG();

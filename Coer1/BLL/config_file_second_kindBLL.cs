@@ -36,6 +36,11 @@ namespace BLL
             return iconfig.Load();
         }
 
+        public List<config_file_second_kindModel> Loads()
+        {
+            return iconfig.Loads();
+        }
+
 
         //一级机构查询
         public Task<List<config_file_first_kindModel>> SelectYiJiJG()

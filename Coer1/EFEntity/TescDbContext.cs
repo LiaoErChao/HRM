@@ -12,7 +12,7 @@ namespace EFEntity
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=DBTesc;Integrated Security=True");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-HEFOE4Q\\SQLEXPRESS;Database=DBTesc;Integrated Security=True");
 
         }
 
@@ -174,6 +174,31 @@ namespace EFEntity
             var u = modelBuilder.Entity<users>();
             u.ToTable(nameof(users));
             u.HasKey("user_id");
+
+            //用户权限 Quan
+            var quan = modelBuilder.Entity<Quan>();
+            quan.ToTable("Quan");
+            quan.Property("text").HasMaxLength(50);
+            quan.Property("QuanURL").HasMaxLength(50);
+            quan.Property("state").HasMaxLength(50);
+
+            //角色表 role
+            var ro = modelBuilder.Entity<role>();
+            ro.ToTable("role");
+            ro.Property("user_identity").HasMaxLength(50);
+            ro.Property("r_sm").HasMaxLength(50);
+            ro.Property("r_status").HasMaxLength(50);
+
+            //角色权限 Quanjs
+            var js = modelBuilder.Entity<Quanjs>();
+            js.ToTable("Quanjs");
+            js.Property("Qid").HasMaxLength(50);
+            js.Property("Jid").HasMaxLength(50);
+
+            //Qx
+            //var aa = modelBuilder.Entity<Qx>();
+            //aa.ToTable(nameof(Qx));
+            //aa.HasKey("id");
         }
 
         public DbSet<config_file_first_kind> configs { get; set; }
@@ -182,5 +207,16 @@ namespace EFEntity
         public DbSet<config_public_char> publics{ get; set; }
         public DbSet<config_major_kind> cfmk { get; set; }
         public DbSet<config_major> cfm { get; set; }
+        public DbSet<users> users { get; set; }
+        public DbSet<human_file> human_Files { get; set; }
+        public DbSet<major_change> major_Changes { get; set; }
+        public DbSet<config_major_kind> config_Major_Kinds { get; set; }
+        public DbSet<config_major> config_Majors { get; set; }
+        public DbSet<salary_standard> salary_Standards { get; set; }
+        public DbSet<Quan> Quans { get; set; }
+        public DbSet<role> Roles { get; set; }
+        public DbSet<Quanjs> Quanjs { get; set; }
+
+        public DbSet<Qx> Qxes { get; set; }
     }
 }
